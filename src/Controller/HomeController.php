@@ -7,6 +7,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
+    //php -S localhost:8000 -t public
+
     /**
      * @Route("/home", name="home")
      */

@@ -86,9 +86,14 @@ class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5
 
         // line 6
         echo "    <header>
-        <nav class=\"navbar\" style=\"background: #4D0080; color: #fff;\">
-            <h3 class=\"text-left\">DGT Creator Services</h3>
-            <p class=\"text-right\">Digital Learning Content Manager</p>
+        <nav class=\"navbar navbar-expand-lg navbar-dark special-color-dark\">
+            <a class=\"navbar-brand\" href=\"#\">DGT Creator Services</a>      
+            <div class=\"collapse navbar-collapse\" id=\"navbarText\">
+                <ul class=\"navbar-nav mr-auto\"></ul>
+                <span class=\"navbar-text white-text\">
+                    Digital Learning Content Manager
+                </span>
+            </div>         
         </nav>
     </header>
     <style>
@@ -230,9 +235,14 @@ class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5
 
 {% block body %}
     <header>
-        <nav class=\"navbar\" style=\"background: #4D0080; color: #fff;\">
-            <h3 class=\"text-left\">DGT Creator Services</h3>
-            <p class=\"text-right\">Digital Learning Content Manager</p>
+        <nav class=\"navbar navbar-expand-lg navbar-dark special-color-dark\">
+            <a class=\"navbar-brand\" href=\"#\">DGT Creator Services</a>      
+            <div class=\"collapse navbar-collapse\" id=\"navbarText\">
+                <ul class=\"navbar-nav mr-auto\"></ul>
+                <span class=\"navbar-text white-text\">
+                    Digital Learning Content Manager
+                </span>
+            </div>         
         </nav>
     </header>
     <style>

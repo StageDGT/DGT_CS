@@ -10,12 +10,20 @@ class HomeController extends AbstractController
     //php -S localhost:8000 -t public
 
     /**
-     * @Route("/home", name="home")
+     * @Route("/", name="home")
      */
     public function index()
     {
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
         ]);
+    }
+
+    /**
+     * @Route("/menu", name="menu")
+     */
+    public function menu()
+    {
+        return $this->render('home/menu.html.twig');
     }
 }

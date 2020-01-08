@@ -52,19 +52,33 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
         // line 5
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
+        <!-- Font Awesome -->
+        <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.8.2/css/all.css\">
+        <!-- Bootstrap core CSS -->
+        <link href=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css\" rel=\"stylesheet\">
+        <!-- Material Design Bootstrap -->
+        <link href=\"https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css\" rel=\"stylesheet\">
+        <!-- JQuery -->
+        <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>
+        <!-- Bootstrap tooltips -->
+        <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js\"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js\"></script>
+        <!-- MDB core JavaScript -->
+        <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js\"></script>
         ";
-        // line 6
+        // line 20
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 7
+        // line 21
         echo "    </head>
     <body>
         ";
-        // line 9
+        // line 23
         $this->displayBlock('body', $context, $blocks);
-        // line 10
+        // line 24
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 11
+        // line 25
         echo "    </body>
 </html>
 ";
@@ -86,7 +100,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Welcome!";
+        echo "DGT CS";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -95,7 +109,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     }
 
-    // line 6
+    // line 20
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -113,7 +127,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     }
 
-    // line 9
+    // line 23
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -131,7 +145,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     }
 
-    // line 10
+    // line 24
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -156,7 +170,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     public function getDebugInfo()
     {
-        return array (  135 => 10,  117 => 9,  99 => 6,  80 => 5,  68 => 11,  65 => 10,  63 => 9,  59 => 7,  57 => 6,  53 => 5,  47 => 1,);
+        return array (  149 => 24,  131 => 23,  113 => 20,  94 => 5,  82 => 25,  79 => 24,  77 => 23,  73 => 21,  71 => 20,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -165,7 +179,21 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 <html>
     <head>
         <meta charset=\"UTF-8\">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}DGT CS{% endblock %}</title>
+        <!-- Font Awesome -->
+        <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.8.2/css/all.css\">
+        <!-- Bootstrap core CSS -->
+        <link href=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css\" rel=\"stylesheet\">
+        <!-- Material Design Bootstrap -->
+        <link href=\"https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css\" rel=\"stylesheet\">
+        <!-- JQuery -->
+        <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>
+        <!-- Bootstrap tooltips -->
+        <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js\"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js\"></script>
+        <!-- MDB core JavaScript -->
+        <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js\"></script>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>

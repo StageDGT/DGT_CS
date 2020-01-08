@@ -3,18 +3,89 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <style>
+        body{
+            background-color:#3F729B;
+        }
+    </style>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark special-color-dark">
+            <a class="navbar-brand" href="#">DGT Creator Services</a>      
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto"></ul>
+                <span class="navbar-text white-text">
+                    Digital Learning Content Manager
+                </span>
+            </div>         
+        </nav>
+    </header>
+    <main style="background-color:#3F729B;">
+        <br/><br/>
+            <div class="container">
+                <div class="row">
+                  <div class="col-sm"></div>
+                  <div class="col-sm" style="background-color : rgb(255, 255, 255);">
+                    <br/>
+                        <form>
+                            <h3 class="text-center">Authentification</h3>
+                            <br/>
+                             <!-- Email -->
+                            <input type="email" id="email" class="form-control mb-4" placeholder="Adresse e-mail" name="email">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+                            <!-- Password -->
+                            <input type="password" id="mdp" class="form-control mb-4" placeholder="Mot de passe" name="mdp">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Stagiaire/DGTCS/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Stagiaire/DGTCS/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+                            <!-- Remember me -->
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                                <label class="custom-control-label" for="defaultLoginFormRemember">Se souvenir de moi</label>
+                            </div>
+                                
+                            <br/>
+                            <!-- Sign in button -->
+                            <button type="button" class="btn btn-primary btn-rounded btn-block" type="submit">SE CONNECTER</button>
+                            
+                            <hr>
+
+                            <!-- Social login -->
+                            <button type="button" class="btn btn-danger btn-rounded btn-block">
+                                <a href="#" class="mx-2" role="button" style="color: white;">
+                                    <i class="fab fa-google" style="color: white;"></i>
+                                    AUTHENTIFICATION AVEC GOOGLE
+                                </a>
+                            </button>
+                            <br/>
+                            <button type="button" class="btn btn-indigo btn-rounded btn-block">
+                                <a href="#" class="mx-2" role="button" style="color: white;">
+                                    <i class="fab fa-facebook" style="color: white;"></i>
+                                    AUTHENTIFICATION AVEC FACEBOOK
+                                </a>
+                            </button>
+                            <br/>
+                        </form>
+                  </div>
+                  <div class="col-sm"></div>
+                </div>
+            </div>        
+    </main>
+
+    <footer class="page-footer font-small" style="color:white; position: absolute; bottom: 0; left: 0; right: 0; background-color: #3F729B;">
+        <div class="footer-copyright py-3">
+            <table width="100%">
+                <tr width="100%">
+                    <td width="5%"></td>
+                    <td width="45%" class="text-left">
+                        © 
+                        <a href="#"> Supercharged by DGT Concept </a>
+                    
+                    </td>
+                    <td width="45%" class="text-right">
+                        © 
+                        <a href="#"> Powered By TALENSOFT </a>
+                    </td>
+                    <td width="5%"></td>
+                </tr>
+            </table>
+        </div>
+    </footer>
 {% endblock %}

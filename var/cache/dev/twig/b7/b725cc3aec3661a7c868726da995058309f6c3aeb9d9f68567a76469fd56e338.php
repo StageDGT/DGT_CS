@@ -72,14 +72,86 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
         // line 21
         echo "    </head>
     <body>
+        <header>
+            <nav class=\"navbar navbar-expand-lg navbar-dark special-color-dark\">
+                <a class=\"navbar-brand\" href=\"#\">DGT Creator Services</a>      
+                <div class=\"collapse navbar-collapse\" id=\"navbarText\">
+                    <ul class=\"navbar-nav mr-auto\"></ul>
+                    <span class=\"navbar-text white-text\">
+                        Digital Learning Content Manager
+                    </span>
+                </div>         
+            </nav>
+            <script>
+                function FermerMenu(){
+                    document.getElementById('DC1').style.left = '-90px';
+                    document.getElementById('DC2').style.left = '-90px';
+                    document.getElementById('DC3').style.left = '-90px';
+                    document.getElementById('DC4').style.left = '-90px';
+                    document.getElementById('DC5').style.left = '-90px';
+                }
+
+                function OuvrirMenu(){
+                    document.getElementById('DC1').style.left = '-0px';
+                    document.getElementById('DC2').style.left = '-0px';
+                    document.getElementById('DC3').style.left = '-0px';
+                    document.getElementById('DC4').style.left = '-0px';
+                    document.getElementById('DC5').style.left = '-0px';
+                }
+            </script>
+            <style>
+                #sidebar {
+                    min-width: 270px;
+                    max-width: 270px;
+                    background: #fff;
+                    color: #000000;
+                }
+
+                #sidebar.active {
+                    min-width: 80px;
+                    max-width: 80px;
+                    text-align: center;
+                }
+
+                #sidebar.active ul.components li a {
+                    padding: 10px 0;
+                }
+
+                #sidebar ul li a {
+                    padding: 10px 30px;
+                    display: block;
+                    color: black;
+                }
+
+            </style>
+        </header>
         ";
-        // line 23
+        // line 76
         $this->displayBlock('body', $context, $blocks);
-        // line 24
+        // line 77
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 25
-        echo "    </body>
+        // line 78
+        echo "        <footer class=\"page-footer font-small\" style=\"color:white; position: absolute; bottom: 0; left: 0; right: 0; background-color: #3F729B;\">
+            <div class=\"footer-copyright py-3\">
+                <table width=\"100%\">
+                    <tr width=\"100%\">
+                        <td width=\"5%\"></td>
+                        <td width=\"45%\" class=\"text-left\">
+                            © 
+                            <a href=\"#\"> Supercharged by DGT Concept </a>
+                        
+                        </td>
+                        <td width=\"45%\" class=\"text-right\">
+                            © 
+                            <a href=\"#\"> Powered By TALENSOFT </a>
+                        </td>
+                        <td width=\"5%\"></td>
+                    </tr>
+                </table>
+            </div>
+        </footer>
+    </body>
 </html>
 ";
         
@@ -127,7 +199,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     }
 
-    // line 23
+    // line 76
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -145,7 +217,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     }
 
-    // line 24
+    // line 77
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -170,7 +242,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     public function getDebugInfo()
     {
-        return array (  149 => 24,  131 => 23,  113 => 20,  94 => 5,  82 => 25,  79 => 24,  77 => 23,  73 => 21,  71 => 20,  53 => 5,  47 => 1,);
+        return array (  221 => 77,  203 => 76,  185 => 20,  166 => 5,  135 => 78,  132 => 77,  130 => 76,  73 => 21,  71 => 20,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -197,8 +269,80 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        <header>
+            <nav class=\"navbar navbar-expand-lg navbar-dark special-color-dark\">
+                <a class=\"navbar-brand\" href=\"#\">DGT Creator Services</a>      
+                <div class=\"collapse navbar-collapse\" id=\"navbarText\">
+                    <ul class=\"navbar-nav mr-auto\"></ul>
+                    <span class=\"navbar-text white-text\">
+                        Digital Learning Content Manager
+                    </span>
+                </div>         
+            </nav>
+            <script>
+                function FermerMenu(){
+                    document.getElementById('DC1').style.left = '-90px';
+                    document.getElementById('DC2').style.left = '-90px';
+                    document.getElementById('DC3').style.left = '-90px';
+                    document.getElementById('DC4').style.left = '-90px';
+                    document.getElementById('DC5').style.left = '-90px';
+                }
+
+                function OuvrirMenu(){
+                    document.getElementById('DC1').style.left = '-0px';
+                    document.getElementById('DC2').style.left = '-0px';
+                    document.getElementById('DC3').style.left = '-0px';
+                    document.getElementById('DC4').style.left = '-0px';
+                    document.getElementById('DC5').style.left = '-0px';
+                }
+            </script>
+            <style>
+                #sidebar {
+                    min-width: 270px;
+                    max-width: 270px;
+                    background: #fff;
+                    color: #000000;
+                }
+
+                #sidebar.active {
+                    min-width: 80px;
+                    max-width: 80px;
+                    text-align: center;
+                }
+
+                #sidebar.active ul.components li a {
+                    padding: 10px 0;
+                }
+
+                #sidebar ul li a {
+                    padding: 10px 30px;
+                    display: block;
+                    color: black;
+                }
+
+            </style>
+        </header>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+        <footer class=\"page-footer font-small\" style=\"color:white; position: absolute; bottom: 0; left: 0; right: 0; background-color: #3F729B;\">
+            <div class=\"footer-copyright py-3\">
+                <table width=\"100%\">
+                    <tr width=\"100%\">
+                        <td width=\"5%\"></td>
+                        <td width=\"45%\" class=\"text-left\">
+                            © 
+                            <a href=\"#\"> Supercharged by DGT Concept </a>
+                        
+                        </td>
+                        <td width=\"45%\" class=\"text-right\">
+                            © 
+                            <a href=\"#\"> Powered By TALENSOFT </a>
+                        </td>
+                        <td width=\"5%\"></td>
+                    </tr>
+                </table>
+            </div>
+        </footer>
     </body>
 </html>
 ", "base.html.twig", "C:\\Users\\Stagiaire\\DGTCS\\templates\\base.html.twig");

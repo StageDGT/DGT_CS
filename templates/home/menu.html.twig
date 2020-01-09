@@ -3,67 +3,6 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark special-color-dark">
-            <a class="navbar-brand" href="#">DGT Creator Services</a>      
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto"></ul>
-                <span class="navbar-text white-text">
-                    Digital Learning Content Manager
-                </span>
-            </div>         
-        </nav>
-    </header>
-    <style>
-        #sidebar {
-            min-width: 270px;
-            max-width: 270px;
-            background: #fff;
-            color: #000000;
-        }
-
-        #sidebar.active {
-            min-width: 80px;
-            max-width: 80px;
-            text-align: center;
-        }
-
-        #sidebar.active ul.components li a {
-            padding: 10px 0;
-        }
-
-        #sidebar ul li a {
-            padding: 10px 30px;
-            display: block;
-            color: black;
-        }
-
-        footer{
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-
-    </style>
-
-    <script>
-        function FermerMenu(){
-            document.getElementById('DC1').style.left = '-90px';
-            document.getElementById('DC2').style.left = '-90px';
-            document.getElementById('DC3').style.left = '-90px';
-            document.getElementById('DC4').style.left = '-90px';
-            document.getElementById('DC5').style.left = '-90px';
-        }
-
-        function OuvrirMenu(){
-            document.getElementById('DC1').style.left = '-0px';
-            document.getElementById('DC2').style.left = '-0px';
-            document.getElementById('DC3').style.left = '-0px';
-            document.getElementById('DC4').style.left = '-0px';
-            document.getElementById('DC5').style.left = '-0px';
-        }
-    </script>
-
     <main>
         <table width="100%" height="100%">
             <tr width="100%" height="100%">
@@ -101,24 +40,4 @@
             </tr>
         </table>
     </main>
-
-    <!-- Footer -->
-    <footer class="page-footer font-small" style="background: #fff;">
-        <div class="footer-copyright py-3">
-        <table width="100%">
-            <tr width="100%">
-                <td width="5%"></td>
-                <td width="45%" class="text-left">
-                    © 
-                    <a href="#"> Supercharged by DGT Concept </a>
-                </td>
-                <td width="45%" class="text-right">
-                    © 
-                    <a href="#"> Powered By TALENSOFT </a>
-                </td>
-                <td width="5%"></td>
-            </tr>
-        </table>
-        </div>
-    </footer>
 {% endblock %}

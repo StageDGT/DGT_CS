@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Admin
  *
  * @ORM\Table(name="ADMIN", indexes={@ORM\Index(name="I_FK_ADMIN_SUPERADMIN", columns={"ID_CONTROLER"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\AdminRepository")
  */
 class Admin
 {

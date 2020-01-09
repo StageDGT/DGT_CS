@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* home/menu.html.twig */
+/* /home/menu.html.twig */
 class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5b1f36 extends Template
 {
     private $source;
@@ -40,12 +40,12 @@ class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "home/menu.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "/home/menu.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "home/menu.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "/home/menu.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "home/menu.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "/home/menu.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -85,68 +85,7 @@ class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <header>
-        <nav class=\"navbar navbar-expand-lg navbar-dark special-color-dark\">
-            <a class=\"navbar-brand\" href=\"#\">DGT Creator Services</a>      
-            <div class=\"collapse navbar-collapse\" id=\"navbarText\">
-                <ul class=\"navbar-nav mr-auto\"></ul>
-                <span class=\"navbar-text white-text\">
-                    Digital Learning Content Manager
-                </span>
-            </div>         
-        </nav>
-    </header>
-    <style>
-        #sidebar {
-            min-width: 270px;
-            max-width: 270px;
-            background: #fff;
-            color: #000000;
-        }
-
-        #sidebar.active {
-            min-width: 80px;
-            max-width: 80px;
-            text-align: center;
-        }
-
-        #sidebar.active ul.components li a {
-            padding: 10px 0;
-        }
-
-        #sidebar ul li a {
-            padding: 10px 30px;
-            display: block;
-            color: black;
-        }
-
-        footer{
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-
-    </style>
-
-    <script>
-        function FermerMenu(){
-            document.getElementById('DC1').style.left = '-90px';
-            document.getElementById('DC2').style.left = '-90px';
-            document.getElementById('DC3').style.left = '-90px';
-            document.getElementById('DC4').style.left = '-90px';
-            document.getElementById('DC5').style.left = '-90px';
-        }
-
-        function OuvrirMenu(){
-            document.getElementById('DC1').style.left = '-0px';
-            document.getElementById('DC2').style.left = '-0px';
-            document.getElementById('DC3').style.left = '-0px';
-            document.getElementById('DC4').style.left = '-0px';
-            document.getElementById('DC5').style.left = '-0px';
-        }
-    </script>
-
-    <main>
+        echo "    <main>
         <table width=\"100%\" height=\"100%\">
             <tr width=\"100%\" height=\"100%\">
                 <td onmouseover=\"OuvrirMenu()\" width=\"0%\">
@@ -183,26 +122,6 @@ class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5
             </tr>
         </table>
     </main>
-
-    <!-- Footer -->
-    <footer class=\"page-footer font-small\" style=\"background: #fff;\">
-        <div class=\"footer-copyright py-3\">
-        <table width=\"100%\">
-            <tr width=\"100%\">
-                <td width=\"5%\"></td>
-                <td width=\"45%\" class=\"text-left\">
-                    © 
-                    <a href=\"#\"> Supercharged by DGT Concept </a>
-                </td>
-                <td width=\"45%\" class=\"text-right\">
-                    © 
-                    <a href=\"#\"> Powered By TALENSOFT </a>
-                </td>
-                <td width=\"5%\"></td>
-            </tr>
-        </table>
-        </div>
-    </footer>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -214,7 +133,7 @@ class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5
 
     public function getTemplateName()
     {
-        return "home/menu.html.twig";
+        return "/home/menu.html.twig";
     }
 
     public function isTraitable()
@@ -234,67 +153,6 @@ class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-    <header>
-        <nav class=\"navbar navbar-expand-lg navbar-dark special-color-dark\">
-            <a class=\"navbar-brand\" href=\"#\">DGT Creator Services</a>      
-            <div class=\"collapse navbar-collapse\" id=\"navbarText\">
-                <ul class=\"navbar-nav mr-auto\"></ul>
-                <span class=\"navbar-text white-text\">
-                    Digital Learning Content Manager
-                </span>
-            </div>         
-        </nav>
-    </header>
-    <style>
-        #sidebar {
-            min-width: 270px;
-            max-width: 270px;
-            background: #fff;
-            color: #000000;
-        }
-
-        #sidebar.active {
-            min-width: 80px;
-            max-width: 80px;
-            text-align: center;
-        }
-
-        #sidebar.active ul.components li a {
-            padding: 10px 0;
-        }
-
-        #sidebar ul li a {
-            padding: 10px 30px;
-            display: block;
-            color: black;
-        }
-
-        footer{
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-
-    </style>
-
-    <script>
-        function FermerMenu(){
-            document.getElementById('DC1').style.left = '-90px';
-            document.getElementById('DC2').style.left = '-90px';
-            document.getElementById('DC3').style.left = '-90px';
-            document.getElementById('DC4').style.left = '-90px';
-            document.getElementById('DC5').style.left = '-90px';
-        }
-
-        function OuvrirMenu(){
-            document.getElementById('DC1').style.left = '-0px';
-            document.getElementById('DC2').style.left = '-0px';
-            document.getElementById('DC3').style.left = '-0px';
-            document.getElementById('DC4').style.left = '-0px';
-            document.getElementById('DC5').style.left = '-0px';
-        }
-    </script>
-
     <main>
         <table width=\"100%\" height=\"100%\">
             <tr width=\"100%\" height=\"100%\">
@@ -332,26 +190,6 @@ class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5
             </tr>
         </table>
     </main>
-
-    <!-- Footer -->
-    <footer class=\"page-footer font-small\" style=\"background: #fff;\">
-        <div class=\"footer-copyright py-3\">
-        <table width=\"100%\">
-            <tr width=\"100%\">
-                <td width=\"5%\"></td>
-                <td width=\"45%\" class=\"text-left\">
-                    © 
-                    <a href=\"#\"> Supercharged by DGT Concept </a>
-                </td>
-                <td width=\"45%\" class=\"text-right\">
-                    © 
-                    <a href=\"#\"> Powered By TALENSOFT </a>
-                </td>
-                <td width=\"5%\"></td>
-            </tr>
-        </table>
-        </div>
-    </footer>
-{% endblock %}", "home/menu.html.twig", "C:\\Users\\Stagiaire\\DGTCS\\templates\\home\\menu.html.twig");
+{% endblock %}", "/home/menu.html.twig", "C:\\Users\\Stagiaire\\DGTCS\\templates\\home\\menu.html.twig");
     }
 }

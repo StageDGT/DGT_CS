@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Superadmin
  *
  * @ORM\Table(name="SUPERADMIN")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\SuperadminRepository")
  */
 class Superadmin
 {

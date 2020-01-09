@@ -15,6 +15,13 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
+    'back_office' => [[], ['_controller' => 'App\\Controller\\BackOfficeController::index'], [], [['text', '/backoffice']], [], []],
+    'creerAdmin' => [[], ['_controller' => 'App\\Controller\\BackOfficeController::creerAdmin'], [], [['text', '/backoffice/creerAdmin']], [], []],
+    'creerUtilisateur' => [[], ['_controller' => 'App\\Controller\\BackOfficeController::creerUtilisateur'], [], [['text', '/backoffice/creerUtilisateur']], [], []],
+    'supprimerAdmin' => [['idAdmin'], ['_controller' => 'App\\Controller\\BackOfficeController::supprimerAdmin'], [], [['variable', '/', '[^/]++', 'idAdmin', true], ['text', '/backoffice/supprimerAdmin']], [], []],
+    'supprimerUtilisateur' => [['idUtilisateur'], ['_controller' => 'App\\Controller\\BackOfficeController::supprimerUtilisateur'], [], [['variable', '/', '[^/]++', 'idUtilisateur', true], ['text', '/backoffice/supprimerUtilisateur']], [], []],
+    'modifierAdmin' => [['idAdmin'], ['_controller' => 'App\\Controller\\BackOfficeController::modifierAdmin'], [], [['variable', '/', '[^/]++', 'idAdmin', true], ['text', '/backoffice/modifierAdmin']], [], []],
+    'modifierUtilisateur' => [['idUtilisateur'], ['_controller' => 'App\\Controller\\BackOfficeController::modifierUtilisateur'], [], [['variable', '/', '[^/]++', 'idUtilisateur', true], ['text', '/backoffice/modifierUtilisateur']], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], []],
     'menu' => [[], ['_controller' => 'App\\Controller\\HomeController::menu'], [], [['text', '/menu']], [], []],
 ];

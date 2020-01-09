@@ -90,17 +90,6 @@ class __TwigTemplate_cbaae3faf07ae18a46fdb727a117081fa7b5c1a0116dd40e068198589d8
             background-color:#3F729B;
         }
     </style>
-    <header>
-        <nav class=\"navbar navbar-expand-lg navbar-dark special-color-dark\">
-            <a class=\"navbar-brand\" href=\"#\">DGT Creator Services</a>      
-            <div class=\"collapse navbar-collapse\" id=\"navbarText\">
-                <ul class=\"navbar-nav mr-auto\"></ul>
-                <span class=\"navbar-text white-text\">
-                    Digital Learning Content Manager
-                </span>
-            </div>         
-        </nav>
-    </header>
     <main style=\"background-color:#3F729B;\">
         <br/><br/>
             <div class=\"container\">
@@ -150,26 +139,6 @@ class __TwigTemplate_cbaae3faf07ae18a46fdb727a117081fa7b5c1a0116dd40e068198589d8
                 </div>
             </div>        
     </main>
-
-    <footer class=\"page-footer font-small\" style=\"color:white; position: absolute; bottom: 0; left: 0; right: 0; background-color: #3F729B;\">
-        <div class=\"footer-copyright py-3\">
-            <table width=\"100%\">
-                <tr width=\"100%\">
-                    <td width=\"5%\"></td>
-                    <td width=\"45%\" class=\"text-left\">
-                        © 
-                        <a href=\"#\"> Supercharged by DGT Concept </a>
-                    
-                    </td>
-                    <td width=\"45%\" class=\"text-right\">
-                        © 
-                        <a href=\"#\"> Powered By TALENSOFT </a>
-                    </td>
-                    <td width=\"5%\"></td>
-                </tr>
-            </table>
-        </div>
-    </footer>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -206,17 +175,6 @@ class __TwigTemplate_cbaae3faf07ae18a46fdb727a117081fa7b5c1a0116dd40e068198589d8
             background-color:#3F729B;
         }
     </style>
-    <header>
-        <nav class=\"navbar navbar-expand-lg navbar-dark special-color-dark\">
-            <a class=\"navbar-brand\" href=\"#\">DGT Creator Services</a>      
-            <div class=\"collapse navbar-collapse\" id=\"navbarText\">
-                <ul class=\"navbar-nav mr-auto\"></ul>
-                <span class=\"navbar-text white-text\">
-                    Digital Learning Content Manager
-                </span>
-            </div>         
-        </nav>
-    </header>
     <main style=\"background-color:#3F729B;\">
         <br/><br/>
             <div class=\"container\">
@@ -266,26 +224,6 @@ class __TwigTemplate_cbaae3faf07ae18a46fdb727a117081fa7b5c1a0116dd40e068198589d8
                 </div>
             </div>        
     </main>
-
-    <footer class=\"page-footer font-small\" style=\"color:white; position: absolute; bottom: 0; left: 0; right: 0; background-color: #3F729B;\">
-        <div class=\"footer-copyright py-3\">
-            <table width=\"100%\">
-                <tr width=\"100%\">
-                    <td width=\"5%\"></td>
-                    <td width=\"45%\" class=\"text-left\">
-                        © 
-                        <a href=\"#\"> Supercharged by DGT Concept </a>
-                    
-                    </td>
-                    <td width=\"45%\" class=\"text-right\">
-                        © 
-                        <a href=\"#\"> Powered By TALENSOFT </a>
-                    </td>
-                    <td width=\"5%\"></td>
-                </tr>
-            </table>
-        </div>
-    </footer>
 {% endblock %}
 ", "home/index.html.twig", "C:\\Users\\Stagiaire\\DGTCS\\templates\\home\\index.html.twig");
     }

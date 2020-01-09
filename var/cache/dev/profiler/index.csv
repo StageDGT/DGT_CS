@@ -227,3 +227,6 @@ f7ec77,::1,GET,http://localhost:8000/backoffice,1578581843,,200
 e662b6,::1,GET,http://localhost:8000/backoffice/creerUtilisateur,1578581847,,200
 2b709f,::1,GET,http://localhost:8000/backoffice,1578581880,,200
 7d3e77,::1,GET,http://localhost:8000/backoffice/creerUtilisateur,1578582423,,200
+00e266,::1,GET,http://localhost:8000/backoffice,1578583180,,200
+3929db,::1,GET,http://localhost:8000/backoffice,1578583197,,200
+9f5b9b,::1,GET,http://localhost:8000/backoffice,1578583261,,200

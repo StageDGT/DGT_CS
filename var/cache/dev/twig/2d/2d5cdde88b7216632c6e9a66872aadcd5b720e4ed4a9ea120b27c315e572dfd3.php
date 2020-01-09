@@ -88,16 +88,20 @@ class __TwigTemplate_cbaae3faf07ae18a46fdb727a117081fa7b5c1a0116dd40e068198589d8
         echo "    <style>
         body{
             background-color:#3F729B;
+            background-image: url();
         }
     </style>
-    <main style=\"background-color:#3F729B;\">
+    <main style=\"background-color:#3F729B;height: 100%;\">
         <br/><br/>
             <div class=\"container\">
                 <div class=\"row\">
                   <div class=\"col-sm\"></div>
                   <div class=\"col-sm\" style=\"background-color : rgb(255, 255, 255);\">
                     <br/>
-                        <form>
+                        <form action=\"'";
+        // line 19
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("menu");
+        echo "'\">
                             <h3 class=\"text-center\">Authentification</h3>
                             <br/>
                              <!-- Email -->
@@ -160,7 +164,7 @@ class __TwigTemplate_cbaae3faf07ae18a46fdb727a117081fa7b5c1a0116dd40e068198589d8
 
     public function getDebugInfo()
     {
-        return array (  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -173,16 +177,17 @@ class __TwigTemplate_cbaae3faf07ae18a46fdb727a117081fa7b5c1a0116dd40e068198589d8
     <style>
         body{
             background-color:#3F729B;
+            background-image: url();
         }
     </style>
-    <main style=\"background-color:#3F729B;\">
+    <main style=\"background-color:#3F729B;height: 100%;\">
         <br/><br/>
             <div class=\"container\">
                 <div class=\"row\">
                   <div class=\"col-sm\"></div>
                   <div class=\"col-sm\" style=\"background-color : rgb(255, 255, 255);\">
                     <br/>
-                        <form>
+                        <form action=\"'{{path(\"menu\")}}'\">
                             <h3 class=\"text-center\">Authentification</h3>
                             <br/>
                              <!-- Email -->

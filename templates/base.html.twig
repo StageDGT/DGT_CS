@@ -22,6 +22,7 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark special-color-dark">
+            <img src="{{ asset('image/'~ 'logo.png')}}" />
                 <a class="navbar-brand" href="#">DGT Creator Services</a>      
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav mr-auto"></ul>
@@ -48,10 +49,13 @@
                 }
             </script>
             <style>
+                body{
+                    background-image: url("/image/background.png");
+                }
+
                 #sidebar {
                     min-width: 270px;
                     max-width: 270px;
-                    background: #fff;
                     color: #000000;
                 }
 

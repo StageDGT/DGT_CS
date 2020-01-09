@@ -6,6 +6,8 @@ use App\Entity\Admin;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+
 
 class CreerAdminType extends AbstractType
 {
@@ -20,7 +22,7 @@ class CreerAdminType extends AbstractType
             ->add('nblicence')
             ->add('verrounblicence')
             ->add('login')
-            ->add('mdp')
+            ->add('mdp', PasswordType::class)
             ->add('societe')
             //->add('idControler')
         ;

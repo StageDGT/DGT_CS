@@ -6,6 +6,8 @@ use App\Entity\Utilisateur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+
 
 class ModifUtilisateurType extends AbstractType
 {
@@ -17,7 +19,7 @@ class ModifUtilisateurType extends AbstractType
             ->add('mail')
             ->add('telephone')
             ->add('login')
-            ->add('mdp')
+            ->add('mdp', PasswordType::class)
             //->add('idDiriger')
             //->add('idAppartenir')
         ;

@@ -74,6 +74,10 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
     <body>
         <header>
             <nav class=\"navbar navbar-expand-lg navbar-dark special-color-dark\">
+            <img src=\"";
+        // line 25
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("image/" . "logo.png")), "html", null, true);
+        echo "\" />
                 <a class=\"navbar-brand\" href=\"#\">DGT Creator Services</a>      
                 <div class=\"collapse navbar-collapse\" id=\"navbarText\">
                     <ul class=\"navbar-nav mr-auto\"></ul>
@@ -100,10 +104,13 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
                 }
             </script>
             <style>
+                body{
+                    background-image: url(\"/image/background.png\");
+                }
+
                 #sidebar {
                     min-width: 270px;
                     max-width: 270px;
-                    background: #fff;
                     color: #000000;
                 }
 
@@ -126,12 +133,12 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
             </style>
         </header>
         ";
-        // line 76
+        // line 80
         $this->displayBlock('body', $context, $blocks);
-        // line 77
+        // line 81
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 78
+        // line 82
         echo "        <footer class=\"page-footer font-small\" style=\"color:white; position: absolute; bottom: 0; left: 0; right: 0; background-color: #3F729B;\">
             <div class=\"footer-copyright py-3\">
                 <table width=\"100%\">
@@ -199,7 +206,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     }
 
-    // line 76
+    // line 80
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -217,7 +224,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     }
 
-    // line 77
+    // line 81
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -240,9 +247,14 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  221 => 77,  203 => 76,  185 => 20,  166 => 5,  135 => 78,  132 => 77,  130 => 76,  73 => 21,  71 => 20,  53 => 5,  47 => 1,);
+        return array (  228 => 81,  210 => 80,  192 => 20,  173 => 5,  142 => 82,  139 => 81,  137 => 80,  79 => 25,  73 => 21,  71 => 20,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -271,6 +283,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
     <body>
         <header>
             <nav class=\"navbar navbar-expand-lg navbar-dark special-color-dark\">
+            <img src=\"{{ asset('image/'~ 'logo.png')}}\" />
                 <a class=\"navbar-brand\" href=\"#\">DGT Creator Services</a>      
                 <div class=\"collapse navbar-collapse\" id=\"navbarText\">
                     <ul class=\"navbar-nav mr-auto\"></ul>
@@ -297,10 +310,13 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
                 }
             </script>
             <style>
+                body{
+                    background-image: url(\"/image/background.png\");
+                }
+
                 #sidebar {
                     min-width: 270px;
                     max-width: 270px;
-                    background: #fff;
                     color: #000000;
                 }
 

@@ -10,6 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class CreerUtilisateurType extends AbstractType
 {
@@ -21,7 +22,7 @@ class CreerUtilisateurType extends AbstractType
             ->add('mail')
             ->add('telephone')
             ->add('login')
-            ->add('mdp')
+            ->add('mdp', PasswordType::class)
             //->add('idDiriger')
            /* ->add('idAppartenir', ChoiceType::class, array(
                 'choices' => array(

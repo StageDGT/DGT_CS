@@ -218,3 +218,11 @@ fabefd,::1,GET,http://localhost:8000/backoffice/creerAdmin,1578581287,,200
 70cedf,::1,GET,http://localhost:8000/backoffice/creerAdmin,1578581431,,200
 18a113,::1,GET,http://localhost:8000/backoffice/creerAdmin,1578581480,,200
 359a18,::1,GET,http://localhost:8000/backoffice,1578581501,,200
+b02439,::1,GET,http://localhost:8000/,1578581603,,200
+1ff0e1,::1,GET,http://localhost:8000/,1578581604,,200
+686dbc,::1,GET,http://localhost:8000/menu,1578581754,,200
+b97692,::1,GET,http://localhost:8000/,1578581812,,200
+fce14d,::1,GET,http://localhost:8000/,1578581814,,200
+f7ec77,::1,GET,http://localhost:8000/backoffice,1578581843,,200
+e662b6,::1,GET,http://localhost:8000/backoffice/creerUtilisateur,1578581847,,200
+2b709f,::1,GET,http://localhost:8000/backoffice,1578581880,,200

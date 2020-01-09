@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* /home/menu.html.twig */
+/* home/menu.html.twig */
 class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5b1f36 extends Template
 {
     private $source;
@@ -40,12 +40,12 @@ class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "/home/menu.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "home/menu.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "/home/menu.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "home/menu.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "/home/menu.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "home/menu.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -88,31 +88,11 @@ class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5
         echo "    <main>
         <table width=\"100%\" height=\"100%\">
             <tr width=\"100%\" height=\"100%\">
-                <td onmouseover=\"OuvrirMenu()\" width=\"0%\">
-                    <!-- Menu latéral -->
-                    <div class=\"wrapper d-flex align-items-stretch\">
-                        <nav id=\"sidebar\" class=\"active\">
-                            <ul class=\"list-unstyled components mb-5\">
-                            <li class=\"active\">
-                                <a href=\"#\"><img src=\"image/DC1.jpg\" id=\"DC1\" height=\"100px\" style=\"position: relative;\"/></a>
-                            </li>
-                            <li>
-                                <a href=\"#\"><img src=\"image/DC2.jpg\" id=\"DC2\" height=\"100px\" style=\"position: relative;\"/></a>
-                            </li>
-                            <li>
-                                <a href=\"#\"><img src=\"image/DC3.jpg\" id=\"DC3\" height=\"100px\" style=\"position: relative;\"/></a>
-                            </li>
-                            <li>
-                                <a href=\"#\"><img src=\"image/DC4.jpg\" id=\"DC4\" height=\"100px\" style=\"position: relative;\"/></a>
-                            </li>
-                            <li>
-                                <a href=\"#\"><img src=\"image/DC5.jpg\" id=\"DC5\" height=\"100px\" style=\"position: relative;\"/></a>
-                            </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </td>
-                <td width=\"100%\" class=\"text-center\" onmouseover=\"FermerMenu()\">
+                ";
+        // line 9
+        $this->loadTemplate("menu_deroulant.html.twig", "home/menu.html.twig", 9)->display($context);
+        // line 10
+        echo "                <td width=\"100%\" class=\"text-center\" onmouseover=\"FermerMenu()\">
                     <!-- Contenu de la page -->
                     <div class=\"text-align center\">
                         <h1><strong>Bonjour Nicolas</strong></h1>
@@ -133,7 +113,7 @@ class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5
 
     public function getTemplateName()
     {
-        return "/home/menu.html.twig";
+        return "home/menu.html.twig";
     }
 
     public function isTraitable()
@@ -143,7 +123,7 @@ class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5
 
     public function getDebugInfo()
     {
-        return array (  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  95 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -156,30 +136,7 @@ class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5
     <main>
         <table width=\"100%\" height=\"100%\">
             <tr width=\"100%\" height=\"100%\">
-                <td onmouseover=\"OuvrirMenu()\" width=\"0%\">
-                    <!-- Menu latéral -->
-                    <div class=\"wrapper d-flex align-items-stretch\">
-                        <nav id=\"sidebar\" class=\"active\">
-                            <ul class=\"list-unstyled components mb-5\">
-                            <li class=\"active\">
-                                <a href=\"#\"><img src=\"image/DC1.jpg\" id=\"DC1\" height=\"100px\" style=\"position: relative;\"/></a>
-                            </li>
-                            <li>
-                                <a href=\"#\"><img src=\"image/DC2.jpg\" id=\"DC2\" height=\"100px\" style=\"position: relative;\"/></a>
-                            </li>
-                            <li>
-                                <a href=\"#\"><img src=\"image/DC3.jpg\" id=\"DC3\" height=\"100px\" style=\"position: relative;\"/></a>
-                            </li>
-                            <li>
-                                <a href=\"#\"><img src=\"image/DC4.jpg\" id=\"DC4\" height=\"100px\" style=\"position: relative;\"/></a>
-                            </li>
-                            <li>
-                                <a href=\"#\"><img src=\"image/DC5.jpg\" id=\"DC5\" height=\"100px\" style=\"position: relative;\"/></a>
-                            </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </td>
+                {% include 'menu_deroulant.html.twig' %}
                 <td width=\"100%\" class=\"text-center\" onmouseover=\"FermerMenu()\">
                     <!-- Contenu de la page -->
                     <div class=\"text-align center\">
@@ -190,6 +147,6 @@ class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5
             </tr>
         </table>
     </main>
-{% endblock %}", "/home/menu.html.twig", "C:\\Users\\Stagiaire\\DGTCS\\templates\\home\\menu.html.twig");
+{% endblock %}", "home/menu.html.twig", "C:\\Users\\Stagiaire\\DGTCS\\templates\\home\\menu.html.twig");
     }
 }

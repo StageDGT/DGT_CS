@@ -21,7 +21,12 @@ class ModifUtilisateurType extends AbstractType
             ->add('login')
             ->add('mdp', PasswordType::class)
             //->add('idDiriger')
-            //->add('idAppartenir')
+            ->add('idAppartenir', EntityType::class, [
+                'class' => Service::class,
+                'choice_label' => function ($service) {
+                    return $service->getLibelle();
+                }
+            ])
         ;
     }
 

@@ -8,7 +8,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
@@ -24,19 +23,12 @@ class CreerUtilisateurType extends AbstractType
             ->add('login')
             ->add('mdp', PasswordType::class)
             //->add('idDiriger')
-           /* ->add('idAppartenir', ChoiceType::class, array(
-                'choices' => array(
-                    'Commercial' => 1,
-                    'Marketing' => 2,
-                    'Comptabilité' => 3,
-                    'Industriel' => 4,
-                    'Ressources humaines' => 5,
-                    'Juridique' => 6,
-                    'Maintenance' => 7,
-                    'Informatique' => 8,
-                    'Achat' => 9,
-                ),
-            ))*/
+            ->add('idAppartenir', EntityType::class, [
+                'class' => Service::class,
+                'choice_label' => function ($service) {
+                    return $service->getLibelle();
+                }
+            ])
         ;
     }
 

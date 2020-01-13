@@ -75,7 +75,10 @@ class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5
         echo "                <td width=\"100%\" class=\"text-center\" onmouseover=\"FermerMenu()\">
                     <!-- Contenu de la page -->
                     <div class=\"text-align center\">
-                        <h1><strong>Bonjour Nicolas</strong></h1>
+                        <h1><strong>Bonjour ";
+        // line 11
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["theUser"]) || array_key_exists("theUser", $context) ? $context["theUser"] : (function () { throw new RuntimeError('Variable "theUser" does not exist.', 11, $this->source); })()), "prenom", [], "any", false, false, false, 11), "html", null, true);
+        echo "</strong></h1>
                         <h4><strong>Comment puis-je vous aider ?</strong></h4>
                     </div>
                 </td>
@@ -103,7 +106,7 @@ class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5
 
     public function getDebugInfo()
     {
-        return array (  75 => 8,  73 => 7,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  80 => 11,  75 => 8,  73 => 7,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -118,7 +121,7 @@ class __TwigTemplate_3873382e0042905d75d5f6dff9a43e83fbb60d6f05a9297c7c4d4ea70e5
                 <td width=\"100%\" class=\"text-center\" onmouseover=\"FermerMenu()\">
                     <!-- Contenu de la page -->
                     <div class=\"text-align center\">
-                        <h1><strong>Bonjour Nicolas</strong></h1>
+                        <h1><strong>Bonjour {{theUser.prenom}}</strong></h1>
                         <h4><strong>Comment puis-je vous aider ?</strong></h4>
                     </div>
                 </td>

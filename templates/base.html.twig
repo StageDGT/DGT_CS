@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -117,3 +119,4 @@
         </footer>
     </body>
 </html>
+{% endif %}

@@ -1,61 +1,176 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}DGT CS{% endblock %}</title>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <!-- Bootstrap core CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+        <!-- JQuery -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark special-color-dark">
+                <a href="{{path('menu')}}"><img src="{{ asset('image/'~ 'logo.png')}}" /></a>
+                <a class="navbar-brand" href="{{path('menu')}}">DGT Creator Services</a>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-cog"></i> Connecté en tant que {{ app.user.username }}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ path('back_office') }}">Gérer les utilisateurs</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ path('logout') }}"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                            </div>
+                        </li>
+                    {% endif %}
+                    </ul>
+                    <span class="navbar-text white-text">
+                        Digital Learning Content Manager
+                    </span>
+                </div>    
+            </nav>
+            <script>
+                function FermerMenu(){
+                    document.getElementById('DC1').style.left = '-90px';
+                    document.getElementById('DC2').style.left = '-90px';
+                    document.getElementById('DC3').style.left = '-90px';
+                    document.getElementById('DC4').style.left = '-90px';
+                    document.getElementById('DC5').style.left = '-90px';
+                    document.getElementById('DC6').style.left = '-90px';
+                }
 
-{% block body %}
+                function OuvrirMenu(){
+                    document.getElementById('DC1').style.left = '-0px';
+                    document.getElementById('DC2').style.left = '-0px';
+                    document.getElementById('DC3').style.left = '-0px';
+                    document.getElementById('DC4').style.left = '-0px';
+                    document.getElementById('DC5').style.left = '-0px';
+                    document.getElementById('DC6').style.left = '-0px';
+
+                }
+            </script>
+            <style>
+                body{
+                    background-image: url("/image/background.png");
+                }
+
+                #sidebar {
+                    min-width: 270px;
+                    max-width: 270px;
+                    color: #000000;
+                }
+
+                #sidebar.active {
+                    min-width: 80px;
+                    max-width: 80px;
+                    text-align: center;
+                }
+
+                #sidebar.active ul.components li a {
+                    padding: 10px 0;
+                }
+
+                #sidebar ul li a {
+                    padding: 10px 30px;
+                    display: block;
+                    color: black;
+                }
+
+            </style>
+        </header>
+
 <!-- Page de connexion -->
-<style>
-    body{
-        background-color:#3F729B;
-        background-image: url();
-    }
-</style>
-<main style="background-color:#3F729B;height: 100%;">
-    <br/><br/>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm"></div>
-            <div class="col-sm" style="background-color : rgb(255, 255, 255);">
-            <br/>
-            <form method = "post">
-                {% if error %}
-                    <div class = "alert alert-danger">{{ error.messageKey }}</div>
-                {% endif %}
+        <style>
+            body{
+                background-color:#3F729B;
+                background-image: url();
+            }
+        </style>
+        <main style="background-color:#3F729B;height: 100%;">
+            <br/><br/>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm"></div>
+                    <div class="col-sm" style="background-color : rgb(255, 255, 255);">
+                    <br/>
+                    <form method = "post">
+                        {% if error %}
+                            <div class = "alert alert-danger">Identifiant ou mot de passe incorrect</div>
+                        {% endif %}
 
-                <h3 class="text-center">Authentification</h3>
-                <br/>
-                <!-- Login -->
-                <input type="text" id="login" class="form-control mb-4" name="_username" placeholder="Login" required autofocus>
+                        <h3 class="text-center">Authentification</h3>
+                        <br/>
+                        <!-- Login -->
+                        <input type="text" id="login" class="form-control mb-4" name="_username" placeholder="Login" required autofocus>
 
-                <!-- Password -->
-                <input type="password" id="mdp" class="form-control mb-4" placeholder="Mot de passe" name="_password" required>
+                        <!-- Password -->
+                        <input type="password" id="mdp" class="form-control mb-4" placeholder="Mot de passe" name="_password" required>
 
 
-                <!-- Connexion sécurisée -->
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate')}}">
+                        <!-- Connexion sécurisée -->
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate')}}">
 
-                <button class="btn btn-primary btn-rounded btn-block" type="submit">Se connecter</button>
-                <hr>
+                        <button class="btn btn-primary btn-rounded btn-block" type="submit">Se connecter</button>
+                        <hr>
 
-                            <!-- Social login -->
-                            <button type="button" class="btn btn-danger btn-rounded btn-block">
-                                <a href="#" class="mx-2" role="button" style="color: white;">
-                                    <i class="fab fa-google" style="color: white;"></i>
-                                    AUTHENTIFICATION AVEC GOOGLE
-                                </a>
-                            </button>
-                            <br/>
-                            <button type="button" class="btn btn-indigo btn-rounded btn-block">
-                                <a href="#" class="mx-2" role="button" style="color: white;">
-                                    <i class="fab fa-facebook" style="color: white;"></i>
-                                    AUTHENTIFICATION AVEC FACEBOOK
-                                </a>
-                            </button>
-                            <br/>
-            </form>
+                        <!-- Social login -->
+                        <button type="button" class="btn btn-danger btn-rounded btn-block">
+                            <a href="#" class="mx-2" role="button" style="color: white;">
+                                <i class="fab fa-google" style="color: white;"></i>
+                                AUTHENTIFICATION AVEC GOOGLE
+                            </a>
+                        </button>
+                        <br/>
+                        <button type="button" class="btn btn-indigo btn-rounded btn-block">
+                            <a href="#" class="mx-2" role="button" style="color: white;">
+                                <i class="fab fa-facebook" style="color: white;"></i>
+                                AUTHENTIFICATION AVEC FACEBOOK
+                            </a>
+                        </button>
+                        <br/>
+                    </form>
+                    </div>
+                    <div class="col-sm"></div>
+                </div>
+            </div>        
+        </main>
+ 
+        <br/><br/> <!-- sauts de ligne -->
+
+        <footer class="page-footer font-small" style="color:white; position: absolute; bottom: 0; left: 0; right: 0; background-color: #3F729B;">
+            <div class="footer-copyright py-3">
+                <table width="100%">
+                    <tr width="100%">
+                        <td width="5%"></td>
+                        <td width="45%" class="text-left">
+                            © 
+                            <a href="https://dgt-concept.com/" target="_blank"> Supercharged by DGT Concept </a>
+                        
+                        </td>
+                        <td width="45%" class="text-right">
+                            © 
+                            <a href="https://www.talentsoft.fr/" target="_blank"> Powered By TALENTSOFT </a>
+                        </td>
+                        <td width="5%"></td>
+                    </tr>
+                </table>
             </div>
-            <div class="col-sm"></div>
-        </div>
-    </div>        
-</main>
-
-{% endblock %}
+        </footer>
+    </body>
+</html>

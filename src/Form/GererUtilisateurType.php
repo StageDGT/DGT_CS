@@ -3,17 +3,15 @@
 namespace App\Form;
 
 use App\Entity\Utilisateur;
-use App\Entity\Service;
-use App\Entity\Admin;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use App\Entity\Service;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
-
-class ModifUtilisateurType extends AbstractType
+class GererUtilisateurType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -22,24 +20,29 @@ class ModifUtilisateurType extends AbstractType
             ->add('prenom')
             ->add('mail')
             ->add('telephone')
+            ->add('portable')
+         //   ->add('nblicence')
+         //   ->add('verrounblicence')
+         //   ->add('societe')
+         //   ->add('role')
             ->add('login')
             ->add('mdp', PasswordType::class)
-            ->add('idDiriger',
-                EntityType::class,
-                array('class'=>Admin::class,
-                'choice_label'=>'id',
-                'multiple'=>false,
-                'expanded'=>true,
-                'query_builder'=>function(EntityRepository $er){
-                    return $er->createQueryBuilder('Admin')->orderBy('Admin.id', 'ASC');
-                }
-            ))
             ->add('idAppartenir', EntityType::class, [
                 'class' => Service::class,
                 'choice_label' => function ($service) {
                     return $service->getLibelle();
                 }
             ])
+          /*  ->add('idDiriger',
+                EntityType::class,
+                array('class'=>Utilisateur::class,
+                'choice_label'=>'id',
+                'multiple'=>false,
+                'expanded'=>true,
+                'query_builder'=>function(EntityRepository $er){
+                    return $er->createQueryBuilder('Utilisateur')->orderBy('Utilisateur.id', 'ASC');
+                }
+            ))*/
         ;
     }
 

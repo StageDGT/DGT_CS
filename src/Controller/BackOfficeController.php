@@ -4,16 +4,12 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Admin;
 use App\Entity\Utilisateur;
 use App\Entity\Service;
-use App\Form\CreerAdminType;
-use App\Form\CreerUtilisateurType;
-use App\Form\ModifAdminType;
-use App\Form\ModifUtilisateurType;
 use Symfony\Component\HttpFoundation\Request;
-use App\Repository\AdminRepository;
 use App\Repository\UtilisateurRepository;
+use App\Form\GererUtilisateurType;
+use App\Form\GererAdminType;
 
 
 class BackOfficeController extends AbstractController
@@ -23,14 +19,15 @@ class BackOfficeController extends AbstractController
      */
     public function index()
     {
-        
-        $repository=$this->getDoctrine()->getRepository(Admin::class);
-        $lesAdmin=$repository->findAll();
+        $theUser=$this->getUser();
 
         $repository=$this->getDoctrine()->getRepository(Utilisateur::class);
         $lesUtilisateurs=$repository->findAll();
 
-        return $this->render('back_office/index.html.twig', ['lesAdmin' => $lesAdmin, 'lesUtilisateurs' => $lesUtilisateurs]);
+        $lesAdmins=$repository->findByAdmin();
+        $lesUsers=$repository->findByUser();
+
+        return $this->render('back_office/index.html.twig', ['lesAdmin' => $lesAdmins, 'lesUtilisateurs' => $lesUsers, 'theUser'=>$theUser]);
     }
 
     /**
@@ -38,19 +35,25 @@ class BackOfficeController extends AbstractController
      */
     public function creerAdmin(Request $request)
     {
+        $theUser=$this->getUser();
+
         $entityManager = $this->getDoctrine()->getManager();
-        $admin=new Admin;
-        $form=$this->createForm(CreerAdminType::class,$admin);
+        $repository=$this->getDoctrine()->getRepository(Utilisateur::class);
+        $user=new Utilisateur;
+        $user->setRole(1);
+        $superAdmin=$repository->find(0);
+        $user->setIdDiriger($superAdmin);
+        $form=$this->createForm(GererAdminType::class,$user);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
-            $entityManager->persist($admin);
+            $entityManager->persist($user);
             $entityManager->flush();
             return $this->redirectToRoute('back_office');
 
         }
 
-        return $this->render('/back_office/ajouterAdmin.html.twig', ['form' => $form->createView()]);
+        return $this->render('/back_office/gererAdmin.html.twig', ['form' => $form->createView(), 'user' => $user, 'theUser'=>$theUser]);
     }
 
     /**
@@ -58,35 +61,43 @@ class BackOfficeController extends AbstractController
      */
     public function creerUtilisateur(Request $request)
     {
+        $theUser=$this->getUser();
+
         $entityManager = $this->getDoctrine()->getManager();
-        $utilisateur=new Utilisateur;
+        $user=new Utilisateur;
+        $user->setRole(2);
+
+        $idUserConnecte = $this->getUser()->getId();
+        $repository=$this->getDoctrine()->getRepository(Utilisateur::class);
+        $admin=$repository->find($idUserConnecte);
+        $user->setIdDiriger($admin);
 
         $repository=$this->getDoctrine()->getRepository(Service::class);
         $services=$repository->findAll();
 
-        $form=$this->createForm(CreerUtilisateurType::class,$utilisateur);
+        $form=$this->createForm(GererUtilisateurType::class,$user);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
-            $entityManager->persist($utilisateur);
+            $entityManager->persist($user);
             $entityManager->flush();
             return $this->redirectToRoute('back_office');
 
         }
 
-        return $this->render('/back_office/ajouterUtilisateur.html.twig', ['form' => $form->createView()]);
+        return $this->render('/back_office/gererUtilisateur.html.twig', ['form' => $form->createView(), 'user' => $user, 'theUser'=>$theUser]);
     }
 
     /**
-     * @Route("/backoffice/supprimerAdmin/{idAdmin}", name="supprimerAdmin", methods="DELETE")
+     * @Route("/backoffice/supprimerAdmin/{id}", name="supprimerAdmin", methods="DELETE")
      */
-    public function supprimerAdmin($idAdmin, Request $request)
+    public function supprimerAdmin($id, Request $request)
     {
-        if($this->isCsrfTokenValid('delete'.$idAdmin, $request->request->get('_token')))
+        if($this->isCsrfTokenValid('delete'.$id, $request->request->get('_token')))
         {
             $entityManager = $this->getDoctrine()->getManager();
-            $repository = $this->getDoctrine()->getRepository(Admin::class);
-            $admin = $repository->find($idAdmin);
+            $repository = $this->getDoctrine()->getRepository(Utilisateur::class);
+            $admin = $repository->find($id);
             $entityManager->remove($admin);
             $entityManager->flush();
           
@@ -97,15 +108,15 @@ class BackOfficeController extends AbstractController
 
   
     /**
-     * @Route("/backoffice/supprimerUtilisateur/{idUtilisateur}", name="supprimerUtilisateur", methods="DELETE")
+     * @Route("/backoffice/supprimerUtilisateur/{id}", name="supprimerUtilisateur", methods="DELETE")
      */
-    public function supprimerUtilisateur($idUtilisateur, Request $request)
+    public function supprimerUtilisateur($id, Request $request)
     {
-        if($this->isCsrfTokenValid('delete'.$idUtilisateur, $request->request->get('_token')))
+        if($this->isCsrfTokenValid('delete'.$id, $request->request->get('_token')))
         {
             $entityManager = $this->getDoctrine()->getManager();
             $repository = $this->getDoctrine()->getRepository(Utilisateur::class);
-            $utilisateur = $repository->find($idUtilisateur);
+            $utilisateur = $repository->find($id);
             $entityManager->remove($utilisateur);
             $entityManager->flush();
           
@@ -115,14 +126,16 @@ class BackOfficeController extends AbstractController
     }
 
     /**
-     * @Route("/backoffice/modifierAdmin/{idAdmin}", name="modifierAdmin")
+     * @Route("/backoffice/modifierAdmin/{id}", name="modifierAdmin")
      */
-    public function modifierAdmin($idAdmin, Request $request)
+    public function modifierAdmin($id, Request $request)
     {
+        $theUser=$this->getUser();
+
         $entityManager = $this->getDoctrine()->getManager();
-        $repository = $this->getDoctrine()->getRepository(Admin::class);
-        $admin = $repository->find($idAdmin);
-        $form=$this->createForm(ModifAdminType::class,$admin);
+        $repository = $this->getDoctrine()->getRepository(Utilisateur::class);
+        $user = $repository->find($id);
+        $form=$this->createForm(GererAdminType::class,$user);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
@@ -131,18 +144,20 @@ class BackOfficeController extends AbstractController
             return $this->redirectToRoute('back_office');
 
         }
-        return $this->render('/back_office/modifierAdmin.html.twig', ['form' => $form->createView()]);
+        return $this->render('/back_office/gererAdmin.html.twig', ['form' => $form->createView(), 'user' => $user, 'theUser'=>$theUser]);
     }
 
     /**
-     * @Route("/backoffice/modifierUtilisateur/{idUtilisateur}", name="modifierUtilisateur")
+     * @Route("/backoffice/modifierUtilisateur/{id}", name="modifierUtilisateur")
      */
-    public function modifierUtilisateur($idUtilisateur, Request $request)
+    public function modifierUtilisateur($id, Request $request)
     {
+        $theUser=$this->getUser();
+
         $entityManager = $this->getDoctrine()->getManager();
         $repository = $this->getDoctrine()->getRepository(Utilisateur::class);
-        $utilisateur = $repository->find($idUtilisateur);
-        $form=$this->createForm(ModifUtilisateurType::class,$utilisateur);
+        $user = $repository->find($id);
+        $form=$this->createForm(GererUtilisateurType::class,$user);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
@@ -151,6 +166,6 @@ class BackOfficeController extends AbstractController
             return $this->redirectToRoute('back_office');
 
         }
-        return $this->render('/back_office/modifierUtilisateur.html.twig', ['form' => $form->createView()]);
+        return $this->render('/back_office/gererUtilisateur.html.twig', ['form' => $form->createView(), 'user' => $user, 'theUser'=>$theUser]);
     }
 }

@@ -19,6 +19,26 @@ class UtilisateurRepository extends ServiceEntityRepository
         parent::__construct($registry, Utilisateur::class);
     }
 
+    public function findByAdmin()
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.role = 1')
+            ->orderBy('u.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findByUser()
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.role = 2')
+            ->orderBy('u.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Utilisateur[] Returns an array of Utilisateur objects
     //  */

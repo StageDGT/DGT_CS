@@ -326,27 +326,13 @@
         <argument type="service" id=".service_locator.SXie53V.App\Controller\SecurityController"/>
       </call>
     </service>
-    <service id="App\Form\CreerAdminType" class="App\Form\CreerAdminType" autowire="true" autoconfigure="true">
+    <service id="App\Form\GererAdminType" class="App\Form\GererAdminType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\CreerUtilisateurType" class="App\Form\CreerUtilisateurType" autowire="true" autoconfigure="true">
+    <service id="App\Form\GererUtilisateurType" class="App\Form\GererUtilisateurType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
-    </service>
-    <service id="App\Form\ModifAdminType" class="App\Form\ModifAdminType" autowire="true" autoconfigure="true">
-      <tag name="form.type"/>
-    </service>
-    <service id="App\Form\ModifUtilisateurType" class="App\Form\ModifUtilisateurType" autowire="true" autoconfigure="true">
-      <tag name="form.type"/>
-    </service>
-    <service id="App\Repository\AdminRepository" class="App\Repository\AdminRepository" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\ServiceRepository" class="App\Repository\ServiceRepository" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
-    </service>
-    <service id="App\Repository\SuperadminRepository" class="App\Repository\SuperadminRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -763,10 +749,8 @@
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
-        <argument>App\Form\CreerAdminType</argument>
-        <argument>App\Form\CreerUtilisateurType</argument>
-        <argument>App\Form\ModifAdminType</argument>
-        <argument>App\Form\ModifUtilisateurType</argument>
+        <argument>App\Form\GererAdminType</argument>
+        <argument>App\Form\GererUtilisateurType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1095,7 +1079,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.CjJC884"/>
+      <argument type="service" id=".service_locator.Bl7NSTs"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -3584,7 +3568,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.6ua7Ixs"/>
+      <argument type="service" id=".service_locator.R9yXudk"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4720,20 +4704,12 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CreerAdminType" class="App\Form\CreerAdminType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\CreerAdminType" class="App\Form\CreerAdminType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CreerUtilisateurType" class="App\Form\CreerUtilisateurType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\CreerUtilisateurType" class="App\Form\CreerUtilisateurType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ModifAdminType" class="App\Form\ModifAdminType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\ModifAdminType" class="App\Form\ModifAdminType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ModifUtilisateurType" class="App\Form\ModifUtilisateurType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\ModifUtilisateurType" class="App\Form\ModifUtilisateurType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AdminRepository" class="App\Repository\AdminRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\AdminRepository" class="App\Repository\AdminRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\GererAdminType" class="App\Form\GererAdminType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\GererAdminType" class="App\Form\GererAdminType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\GererUtilisateurType" class="App\Form\GererUtilisateurType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\GererUtilisateurType" class="App\Form\GererUtilisateurType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ServiceRepository" class="App\Repository\ServiceRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ServiceRepository" class="App\Repository\ServiceRepository" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SuperadminRepository" class="App\Repository\SuperadminRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\SuperadminRepository" class="App\Repository\SuperadminRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UtilisateurRepository" class="App\Repository\UtilisateurRepository" autowire="true" abstract="true"/>
@@ -4993,13 +4969,11 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.CjJC884" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.Bl7NSTs" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Form\CreerAdminType" type="service" id="App\Form\CreerAdminType"/>
-        <argument key="App\Form\CreerUtilisateurType" type="service" id="App\Form\CreerUtilisateurType"/>
-        <argument key="App\Form\ModifAdminType" type="service" id="App\Form\ModifAdminType"/>
-        <argument key="App\Form\ModifUtilisateurType" type="service" id="App\Form\ModifUtilisateurType"/>
+        <argument key="App\Form\GererAdminType" type="service" id="App\Form\GererAdminType"/>
+        <argument key="App\Form\GererUtilisateurType" type="service" id="App\Form\GererUtilisateurType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service" id="form.type.file"/>
@@ -5165,12 +5139,10 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.6ua7Ixs" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.R9yXudk" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Repository\AdminRepository" type="service" id="App\Repository\AdminRepository"/>
         <argument key="App\Repository\ServiceRepository" type="service" id="App\Repository\ServiceRepository"/>
-        <argument key="App\Repository\SuperadminRepository" type="service" id="App\Repository\SuperadminRepository"/>
         <argument key="App\Repository\UserRepository" type="service" id="App\Repository\UserRepository"/>
         <argument key="App\Repository\UtilisateurRepository" type="service" id="App\Repository\UtilisateurRepository"/>
       </argument>

@@ -10,6 +10,7 @@
                     <div class="text-align center">
                         <div class="container">
                             <div class="row">
+                                {% if theUser.role == 0 %}
                                 <div class="col-sm bg-white">
                                     <br/>
                                     <h3>Gérer les Administrateurs</h3><hr/>
@@ -30,9 +31,9 @@
                                             <td style="vertical-align: middle;">{{unAdmin.nom}}</td>
                                             <td style="vertical-align: middle;">{{unAdmin.prenom}}</td>
                                             <td style="vertical-align: middle;">{{unAdmin.societe}}</td>
-                                            <td style="vertical-align: middle;"><a href='{{path("modifierAdmin", {'idAdmin': unAdmin.id})}}' type='button' class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a></td>
+                                            <td style="vertical-align: middle;"><a href='{{path("modifierAdmin", {'id': unAdmin.id})}}' type='button' class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a></td>
                                             <td style="vertical-align: middle;">
-                                                <form action="{{ path('supprimerAdmin', {idAdmin : unAdmin.id})}}" method="post" onSubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet Administrateur ?')">
+                                                <form action="{{ path('supprimerAdmin', {id : unAdmin.id})}}" method="post" onSubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet Administrateur ?')">
                                                     
                                                     <input type="hidden" name="_method" value="DELETE"></input>
                                                     <input type="hidden" name="_token" value="{{csrf_token('delete'~ unAdmin.id)}}"></input>
@@ -44,6 +45,8 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                {% endif %}
+                                {% if theUser.role == 1 %}
                                 <div class="col-sm bg-white">
                                     <br/>
                                     <h3>Gérer les Utilisateurs</h3><hr/>
@@ -64,9 +67,9 @@
                                                 <td style="vertical-align: middle;">{{unUtilisateur.nom}}</td>
                                                 <td style="vertical-align: middle;">{{unUtilisateur.prenom}}</td>
                                                 <td style="vertical-align: middle;">{{unUtilisateur.idAppartenir.libelle}}</td>
-                                                <td style="vertical-align: middle;"><a href='{{path("modifierUtilisateur", {'idUtilisateur': unUtilisateur.id})}}' type='button' class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a></td>
+                                                <td style="vertical-align: middle;"><a href='{{path("modifierUtilisateur", {'id': unUtilisateur.id})}}' type='button' class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a></td>
                                                 <td style="vertical-align: middle;">
-                                                    <form action="{{ path('supprimerUtilisateur', {idUtilisateur : unUtilisateur.id})}}" method="post" onSubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet Utilisateur ?')">
+                                                    <form action="{{ path('supprimerUtilisateur', {id : unUtilisateur.id})}}" method="post" onSubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet Utilisateur ?')">
                                                         <input type="hidden" name="_method" value="DELETE"></input>
                                                         <input type="hidden" name="_token" value="{{csrf_token('delete'~ unUtilisateur.id)}}"></input>
                                                         <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button> 
@@ -77,6 +80,7 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

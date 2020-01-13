@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<!-- Page de connexion -->
+<style>
+    body{
+        background-color:#3F729B;
+        background-image: url();
+    }
+</style>
+<main style="background-color:#3F729B;height: 100%;">
+    <br/><br/>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm"></div>
+            <div class="col-sm" style="background-color : rgb(255, 255, 255);">
+            <br/>
+            <form method = "post">
+                {% if error %}
+                    <div class = "alert alert-danger">{{ error.messageKey }}</div>
+                {% endif %}
+
+                <h3 class="text-center">Authentification</h3>
+                <br/>
+                <!-- Login -->
+                <input type="text" id="login" class="form-control mb-4" name="_username" placeholder="Login" required autofocus>
+
+                <!-- Password -->
+                <input type="password" id="mdp" class="form-control mb-4" placeholder="Mot de passe" name="_password" required>
+
+
+                <!-- Connexion sécurisée -->
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate')}}">
+
+                <button class="btn btn-primary btn-rounded btn-block" type="submit">Se connecter</button>
+                <hr>
+
+                            <!-- Social login -->
+                            <button type="button" class="btn btn-danger btn-rounded btn-block">
+                                <a href="#" class="mx-2" role="button" style="color: white;">
+                                    <i class="fab fa-google" style="color: white;"></i>
+                                    AUTHENTIFICATION AVEC GOOGLE
+                                </a>
+                            </button>
+                            <br/>
+                            <button type="button" class="btn btn-indigo btn-rounded btn-block">
+                                <a href="#" class="mx-2" role="button" style="color: white;">
+                                    <i class="fab fa-facebook" style="color: white;"></i>
+                                    AUTHENTIFICATION AVEC FACEBOOK
+                                </a>
+                            </button>
+                            <br/>
+            </form>
+            </div>
+            <div class="col-sm"></div>
+        </div>
+    </div>        
+</main>
+
+{% endblock %}

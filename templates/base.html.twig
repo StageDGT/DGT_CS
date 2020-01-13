@@ -23,13 +23,26 @@
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark special-color-dark">
                 <a href="{{path('menu')}}"><img src="{{ asset('image/'~ 'logo.png')}}" /></a>
-                <a class="navbar-brand" href="{{path('menu')}}">DGT Creator Services</a>      
+                <a class="navbar-brand" href="{{path('menu')}}">DGT Creator Services</a>
                 <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav mr-auto"></ul>
+                    <ul class="navbar-nav mr-auto">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-cog"></i> Connecté en tant que {{ app.user.username }}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ path('back_office') }}">Gérer les utilisateurs</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ path('logout') }}"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                            </div>
+                        </li>
+                    {% endif %}
+                    </ul>
                     <span class="navbar-text white-text">
                         Digital Learning Content Manager
                     </span>
-                </div>         
+                </div>    
             </nav>
             <script>
                 function FermerMenu(){
@@ -90,12 +103,12 @@
                         <td width="5%"></td>
                         <td width="45%" class="text-left">
                             © 
-                            <a href="#"> Supercharged by DGT Concept </a>
+                            <a href="https://dgt-concept.com/" target="_blank"> Supercharged by DGT Concept </a>
                         
                         </td>
                         <td width="45%" class="text-right">
                             © 
-                            <a href="#"> Powered By TALENTSOFT </a>
+                            <a href="https://www.talentsoft.fr/" target="_blank"> Powered By TALENTSOFT </a>
                         </td>
                         <td width="5%"></td>
                     </tr>

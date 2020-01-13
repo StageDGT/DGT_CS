@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Utilisateur
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="UTILISATEUR", indexes={@ORM\Index(name="I_FK_UTILISATEUR_SERVICE", columns={"ID_APPARTENIR"}), @ORM\Index(name="I_FK_UTILISATEUR_ADMIN", columns={"ID_DIRIGER"})})
  * @ORM\Entity(repositoryClass="App\Repository\UtilisateurRepository")
  */
-class Utilisateur
+class Utilisateur implements UserInterface, \Serializable
 {
     /**
      * @var int
@@ -184,5 +185,35 @@ class Utilisateur
         return $this;
     }
 
-
+    //Méthode pour authentification NE PAS TOUCHER svp Bisous
+    public function getSalt(){
+        return null;
+    }
+    public function getRoles(){
+        return array('ROLE_USER');
+    }
+    public function eraseCredentials(){
+    }
+    public function getUsername(){
+        return $this->getLogin();
+    }
+    public function getPassword(){
+        return $this->getMdp();
+    }
+    /** @see \Serializable::serialize() */
+    public function serialize(){
+        return serialize(array(
+            $this->id,
+            $this->login,
+            $this->mdp,
+        ));
+    }
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized){
+        list(
+            $this->id,
+            $this->login,
+            $this->mdp,
+        )=unserialize($serialized);
+    }
 }

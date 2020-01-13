@@ -24,4 +24,6 @@ return [
     'modifierUtilisateur' => [['idUtilisateur'], ['_controller' => 'App\\Controller\\BackOfficeController::modifierUtilisateur'], [], [['variable', '/', '[^/]++', 'idUtilisateur', true], ['text', '/backoffice/modifierUtilisateur']], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], []],
     'menu' => [[], ['_controller' => 'App\\Controller\\HomeController::menu'], [], [['text', '/menu']], [], []],
+    'login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
+    'logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
 ];

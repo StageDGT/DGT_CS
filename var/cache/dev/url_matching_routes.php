@@ -18,6 +18,8 @@ return [
         '/backoffice/creerUtilisateur' => [[['_route' => 'creerUtilisateur', '_controller' => 'App\\Controller\\BackOfficeController::creerUtilisateur'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/menu' => [[['_route' => 'menu', '_controller' => 'App\\Controller\\HomeController::menu'], null, null, null, false, false, null]],
+        '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
+        '/logout' => [[['_route' => 'logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

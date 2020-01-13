@@ -83,13 +83,40 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
                 <a class=\"navbar-brand\" href=\"";
         // line 26
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("menu");
-        echo "\">DGT Creator Services</a>      
+        echo "\">DGT Creator Services</a>
                 <div class=\"collapse navbar-collapse\" id=\"navbarText\">
-                    <ul class=\"navbar-nav mr-auto\"></ul>
+                    <ul class=\"navbar-nav mr-auto\">
+                    ";
+        // line 29
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
+            // line 30
+            echo "                        <li class=\"nav-item dropdown\">
+                            <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                                <i class=\"fas fa-cog\"></i> Connecté en tant que ";
+            // line 32
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 32, $this->source); })()), "user", [], "any", false, false, false, 32), "username", [], "any", false, false, false, 32), "html", null, true);
+            echo "
+                            </a>
+                            <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+                                <a class=\"dropdown-item\" href=\"";
+            // line 35
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("back_office");
+            echo "\">Gérer les utilisateurs</a>
+                                <div class=\"dropdown-divider\"></div>
+                                <a class=\"dropdown-item\" href=\"";
+            // line 37
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
+            echo "\"><i class=\"fas fa-sign-out-alt\"></i> Déconnexion</a>
+                            </div>
+                        </li>
+                    ";
+        }
+        // line 41
+        echo "                    </ul>
                     <span class=\"navbar-text white-text\">
                         Digital Learning Content Manager
                     </span>
-                </div>         
+                </div>    
             </nav>
             <script>
                 function FermerMenu(){
@@ -141,12 +168,12 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
             </style>
         </header>
         ";
-        // line 83
+        // line 96
         $this->displayBlock('body', $context, $blocks);
-        // line 84
+        // line 97
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 85
+        // line 98
         echo "        <br/><br/>
         <footer class=\"page-footer font-small\" style=\"color:white; position: absolute; bottom: 0; left: 0; right: 0; background-color: #3F729B;\">
             <div class=\"footer-copyright py-3\">
@@ -155,12 +182,12 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
                         <td width=\"5%\"></td>
                         <td width=\"45%\" class=\"text-left\">
                             © 
-                            <a href=\"#\"> Supercharged by DGT Concept </a>
+                            <a href=\"https://dgt-concept.com/\" target=\"_blank\"> Supercharged by DGT Concept </a>
                         
                         </td>
                         <td width=\"45%\" class=\"text-right\">
                             © 
-                            <a href=\"#\"> Powered By TALENTSOFT </a>
+                            <a href=\"https://www.talentsoft.fr/\" target=\"_blank\"> Powered By TALENTSOFT </a>
                         </td>
                         <td width=\"5%\"></td>
                     </tr>
@@ -215,7 +242,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     }
 
-    // line 83
+    // line 96
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -233,7 +260,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     }
 
-    // line 84
+    // line 97
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -263,7 +290,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     public function getDebugInfo()
     {
-        return array (  237 => 84,  219 => 83,  201 => 20,  182 => 5,  150 => 85,  147 => 84,  145 => 83,  85 => 26,  79 => 25,  73 => 21,  71 => 20,  53 => 5,  47 => 1,);
+        return array (  264 => 97,  246 => 96,  228 => 20,  209 => 5,  177 => 98,  174 => 97,  172 => 96,  115 => 41,  108 => 37,  103 => 35,  97 => 32,  93 => 30,  91 => 29,  85 => 26,  79 => 25,  73 => 21,  71 => 20,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -293,13 +320,26 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
         <header>
             <nav class=\"navbar navbar-expand-lg navbar-dark special-color-dark\">
                 <a href=\"{{path('menu')}}\"><img src=\"{{ asset('image/'~ 'logo.png')}}\" /></a>
-                <a class=\"navbar-brand\" href=\"{{path('menu')}}\">DGT Creator Services</a>      
+                <a class=\"navbar-brand\" href=\"{{path('menu')}}\">DGT Creator Services</a>
                 <div class=\"collapse navbar-collapse\" id=\"navbarText\">
-                    <ul class=\"navbar-nav mr-auto\"></ul>
+                    <ul class=\"navbar-nav mr-auto\">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li class=\"nav-item dropdown\">
+                            <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                                <i class=\"fas fa-cog\"></i> Connecté en tant que {{ app.user.username }}
+                            </a>
+                            <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+                                <a class=\"dropdown-item\" href=\"{{ path('back_office') }}\">Gérer les utilisateurs</a>
+                                <div class=\"dropdown-divider\"></div>
+                                <a class=\"dropdown-item\" href=\"{{ path('logout') }}\"><i class=\"fas fa-sign-out-alt\"></i> Déconnexion</a>
+                            </div>
+                        </li>
+                    {% endif %}
+                    </ul>
                     <span class=\"navbar-text white-text\">
                         Digital Learning Content Manager
                     </span>
-                </div>         
+                </div>    
             </nav>
             <script>
                 function FermerMenu(){
@@ -360,12 +400,12 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
                         <td width=\"5%\"></td>
                         <td width=\"45%\" class=\"text-left\">
                             © 
-                            <a href=\"#\"> Supercharged by DGT Concept </a>
+                            <a href=\"https://dgt-concept.com/\" target=\"_blank\"> Supercharged by DGT Concept </a>
                         
                         </td>
                         <td width=\"45%\" class=\"text-right\">
                             © 
-                            <a href=\"#\"> Powered By TALENTSOFT </a>
+                            <a href=\"https://www.talentsoft.fr/\" target=\"_blank\"> Powered By TALENTSOFT </a>
                         </td>
                         <td width=\"5%\"></td>
                     </tr>

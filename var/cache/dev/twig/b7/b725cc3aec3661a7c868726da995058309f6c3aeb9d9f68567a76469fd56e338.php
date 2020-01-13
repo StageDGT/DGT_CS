@@ -74,11 +74,16 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
     <body>
         <header>
             <nav class=\"navbar navbar-expand-lg navbar-dark special-color-dark\">
-            <img src=\"";
+                <a href=\"";
         // line 25
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("menu");
+        echo "\"><img src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("image/" . "logo.png")), "html", null, true);
-        echo "\" />
-                <a class=\"navbar-brand\" href=\"#\">DGT Creator Services</a>      
+        echo "\" /></a>
+                <a class=\"navbar-brand\" href=\"";
+        // line 26
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("menu");
+        echo "\">DGT Creator Services</a>      
                 <div class=\"collapse navbar-collapse\" id=\"navbarText\">
                     <ul class=\"navbar-nav mr-auto\"></ul>
                     <span class=\"navbar-text white-text\">
@@ -93,6 +98,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
                     document.getElementById('DC3').style.left = '-90px';
                     document.getElementById('DC4').style.left = '-90px';
                     document.getElementById('DC5').style.left = '-90px';
+                    document.getElementById('DC6').style.left = '-90px';
                 }
 
                 function OuvrirMenu(){
@@ -101,6 +107,8 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
                     document.getElementById('DC3').style.left = '-0px';
                     document.getElementById('DC4').style.left = '-0px';
                     document.getElementById('DC5').style.left = '-0px';
+                    document.getElementById('DC6').style.left = '-0px';
+
                 }
             </script>
             <style>
@@ -133,12 +141,12 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
             </style>
         </header>
         ";
-        // line 80
+        // line 83
         $this->displayBlock('body', $context, $blocks);
-        // line 81
+        // line 84
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 82
+        // line 85
         echo "        <footer class=\"page-footer font-small\" style=\"color:white; position: absolute; bottom: 0; left: 0; right: 0; background-color: #3F729B;\">
             <div class=\"footer-copyright py-3\">
                 <table width=\"100%\">
@@ -206,7 +214,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     }
 
-    // line 80
+    // line 83
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -224,7 +232,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     }
 
-    // line 81
+    // line 84
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -254,7 +262,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     public function getDebugInfo()
     {
-        return array (  228 => 81,  210 => 80,  192 => 20,  173 => 5,  142 => 82,  139 => 81,  137 => 80,  79 => 25,  73 => 21,  71 => 20,  53 => 5,  47 => 1,);
+        return array (  236 => 84,  218 => 83,  200 => 20,  181 => 5,  150 => 85,  147 => 84,  145 => 83,  85 => 26,  79 => 25,  73 => 21,  71 => 20,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -283,8 +291,8 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
     <body>
         <header>
             <nav class=\"navbar navbar-expand-lg navbar-dark special-color-dark\">
-            <img src=\"{{ asset('image/'~ 'logo.png')}}\" />
-                <a class=\"navbar-brand\" href=\"#\">DGT Creator Services</a>      
+                <a href=\"{{path('menu')}}\"><img src=\"{{ asset('image/'~ 'logo.png')}}\" /></a>
+                <a class=\"navbar-brand\" href=\"{{path('menu')}}\">DGT Creator Services</a>      
                 <div class=\"collapse navbar-collapse\" id=\"navbarText\">
                     <ul class=\"navbar-nav mr-auto\"></ul>
                     <span class=\"navbar-text white-text\">
@@ -299,6 +307,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
                     document.getElementById('DC3').style.left = '-90px';
                     document.getElementById('DC4').style.left = '-90px';
                     document.getElementById('DC5').style.left = '-90px';
+                    document.getElementById('DC6').style.left = '-90px';
                 }
 
                 function OuvrirMenu(){
@@ -307,6 +316,8 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
                     document.getElementById('DC3').style.left = '-0px';
                     document.getElementById('DC4').style.left = '-0px';
                     document.getElementById('DC5').style.left = '-0px';
+                    document.getElementById('DC6').style.left = '-0px';
+
                 }
             </script>
             <style>

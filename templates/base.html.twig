@@ -22,8 +22,8 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark special-color-dark">
-            <img src="{{ asset('image/'~ 'logo.png')}}" />
-                <a class="navbar-brand" href="#">DGT Creator Services</a>      
+                <a href="{{path('menu')}}"><img src="{{ asset('image/'~ 'logo.png')}}" /></a>
+                <a class="navbar-brand" href="{{path('menu')}}">DGT Creator Services</a>      
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav mr-auto"></ul>
                     <span class="navbar-text white-text">
@@ -38,6 +38,7 @@
                     document.getElementById('DC3').style.left = '-90px';
                     document.getElementById('DC4').style.left = '-90px';
                     document.getElementById('DC5').style.left = '-90px';
+                    document.getElementById('DC6').style.left = '-90px';
                 }
 
                 function OuvrirMenu(){
@@ -46,6 +47,8 @@
                     document.getElementById('DC3').style.left = '-0px';
                     document.getElementById('DC4').style.left = '-0px';
                     document.getElementById('DC5').style.left = '-0px';
+                    document.getElementById('DC6').style.left = '-0px';
+
                 }
             </script>
             <style>

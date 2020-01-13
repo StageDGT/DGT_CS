@@ -230,3 +230,15 @@ e662b6,::1,GET,http://localhost:8000/backoffice/creerUtilisateur,1578581847,,200
 00e266,::1,GET,http://localhost:8000/backoffice,1578583180,,200
 3929db,::1,GET,http://localhost:8000/backoffice,1578583197,,200
 9f5b9b,::1,GET,http://localhost:8000/backoffice,1578583261,,200
+6d4fd8,::1,GET,http://localhost:8000/,1578903461,,200
+7e7343,::1,GET,http://localhost:8000/,1578903464,,200
+217e81,::1,GET,http://localhost:8000/menu,1578903542,,200
+9d84f8,::1,GET,http://localhost:8000/menu,1578903732,,200
+38d0f7,::1,GET,http://localhost:8000/menu,1578903803,d009ce,500
+d009ce,::1,GET,http://localhost:8000/menu,1578903803,,500
+68446e,::1,GET,http://localhost:8000/menu,1578903892,,200
+7d7cf1,::1,GET,http://localhost:8000/menu,1578903951,,200
+d02a90,::1,GET,http://localhost:8000/backoffice,1578903985,,200
+044e35,::1,GET,http://localhost:8000/backoffice,1578904152,,200
+c47245,::1,GET,http://localhost:8000/menu,1578904156,,200
+d5e9fe,::1,GET,http://localhost:8000/backoffice,1578904164,,200

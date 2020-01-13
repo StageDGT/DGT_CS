@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
-
 {% block body %}
     <style>
         body{
@@ -16,7 +14,7 @@
                   <div class="col-sm"></div>
                   <div class="col-sm" style="background-color : rgb(255, 255, 255);">
                     <br/>
-                        <form action="'{{path("menu")}}'">
+                        <form action="{{path("menu")}}">
                             <h3 class="text-center">Authentification</h3>
                             <br/>
                              <!-- Email -->

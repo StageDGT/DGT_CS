@@ -46,7 +46,7 @@ class BackOfficeController extends AbstractController
         {
             $entityManager->persist($admin);
             $entityManager->flush();
-            return $this->redirectToRoute('menu');
+            return $this->redirectToRoute('back_office');
 
         }
 
@@ -70,7 +70,7 @@ class BackOfficeController extends AbstractController
         {
             $entityManager->persist($utilisateur);
             $entityManager->flush();
-            return $this->redirectToRoute('menu');
+            return $this->redirectToRoute('back_office');
 
         }
 

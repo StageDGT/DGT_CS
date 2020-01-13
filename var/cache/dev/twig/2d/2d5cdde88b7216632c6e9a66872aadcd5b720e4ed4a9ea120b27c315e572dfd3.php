@@ -25,7 +25,6 @@ class __TwigTemplate_cbaae3faf07ae18a46fdb727a117081fa7b5c1a0116dd40e068198589d8
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
-            'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -56,25 +55,6 @@ class __TwigTemplate_cbaae3faf07ae18a46fdb727a117081fa7b5c1a0116dd40e068198589d8
     }
 
     // line 3
-    public function block_title($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        echo "Hello HomeController!";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
-    // line 5
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,7 +64,7 @@ class __TwigTemplate_cbaae3faf07ae18a46fdb727a117081fa7b5c1a0116dd40e068198589d8
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
+        // line 4
         echo "    <style>
         body{
             background-color:#3F729B;
@@ -98,10 +78,10 @@ class __TwigTemplate_cbaae3faf07ae18a46fdb727a117081fa7b5c1a0116dd40e068198589d8
                   <div class=\"col-sm\"></div>
                   <div class=\"col-sm\" style=\"background-color : rgb(255, 255, 255);\">
                     <br/>
-                        <form action=\"'";
-        // line 19
+                        <form action=\"";
+        // line 17
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("menu");
-        echo "'\">
+        echo "\">
                             <h3 class=\"text-center\">Authentification</h3>
                             <br/>
                              <!-- Email -->
@@ -164,14 +144,12 @@ class __TwigTemplate_cbaae3faf07ae18a46fdb727a117081fa7b5c1a0116dd40e068198589d8
 
     public function getDebugInfo()
     {
-        return array (  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  83 => 17,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
-
-{% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
     <style>
@@ -187,7 +165,7 @@ class __TwigTemplate_cbaae3faf07ae18a46fdb727a117081fa7b5c1a0116dd40e068198589d8
                   <div class=\"col-sm\"></div>
                   <div class=\"col-sm\" style=\"background-color : rgb(255, 255, 255);\">
                     <br/>
-                        <form action=\"'{{path(\"menu\")}}'\">
+                        <form action=\"{{path(\"menu\")}}\">
                             <h3 class=\"text-center\">Authentification</h3>
                             <br/>
                              <!-- Email -->

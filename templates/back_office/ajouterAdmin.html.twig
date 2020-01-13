@@ -11,13 +11,71 @@
         <td width="100%" class="text-center" onmouseover="FermerMenu()">
             <!-- Contenu de la page -->
             <div class="text-align center">      
-                {{ form_start(form) }}
-                    {{ form_widget(form) }}
-                    <button type="submit" class="btn btn-primary">Valider</button>
-                {{ form_end(form) }}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm"></div>
+                        <div class="col-sm bg-white">
+                            <br/>
+                            {{ form_start(form) }}
+                                <div class="form-group">   
+                                    <label>Nom</label>
+                                    {{ form_widget(form.nom, { attr: {'class': 'form-control'} })}}
+                                </div>
+                                <div class="form-group">     
+                                    <label>Prénom</label>
+                                    {{ form_widget(form.prenom, { attr: {'class': 'form-control'} })}}
+                                </div>
+                                <div class="form-group">     
+                                    <label>Adresse mail</label>
+                                    {{ form_widget(form.mail, { attr: {'class': 'form-control'} })}}
+                                </div>
+                                <div class="form-group">     
+                                    <label>Numéro de téléphone</label>
+                                    {{ form_widget(form.telephone, { attr: {'class': 'form-control'} })}}
+                                </div>
+                                <div class="form-group">     
+                                    <label>Numéro de portable</label>
+                                    {{ form_widget(form.portable, { attr: {'class': 'form-control'} })}}
+                                </div>
+                                <div class="form-group">     
+                                    <label>Nombre de licences maximum</label>
+                                    {{ form_widget(form.nblicence, { attr: {'class': 'form-control'} })}}
+                                </div>
+                                <div class="form-group">     
+                                    <label>Verrouiller le nombre de licence maximum</label>
+                                    {{ form_widget(form.verrounblicence, { attr: {'class': 'form-control'} })}}
+                                </div>
+                                <div class="form-group">     
+                                    <label>Société</label>
+                                    {{ form_widget(form.societe, { attr: {'class': 'form-control'} })}}
+                                </div>
+                                <div class="form-group">     
+                                    <label>Identifiant</label>
+                                    {{ form_widget(form.login, { attr: {'class': 'form-control'} })}}
+                                </div>
+                                <div class="form-group">     
+                                    <label>Mot de passe</label>
+                                    {{ form_widget(form.mdp, { attr: {'class': 'form-control'} })}}
+                                </div>
+                                <div class="form-group">     
+                                    <label></label>
+                                    {{ form_widget(form.idControler, { attr: {'class': 'form-control'} })}}
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary">Ajouter</button>
+                            {{ form_end(form) }}
+                            <br/>
+                        </div>
+                        <div class="col-sm"></div>
+                    </div>
+                </div>
             </div>
         </td>
     </tr>
 </table>
-
+<style>
+    body{
+        position: relative;
+    }
+</style>
 {% endblock %}

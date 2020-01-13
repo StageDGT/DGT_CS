@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Utilisateur;
 use App\Entity\Service;
+use App\Entity\Admin;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,7 +23,16 @@ class CreerUtilisateurType extends AbstractType
             ->add('telephone')
             ->add('login')
             ->add('mdp', PasswordType::class)
-            //->add('idDiriger')
+            ->add('idDiriger',
+                EntityType::class,
+                array('class'=>Admin::class,
+                'choice_label'=>'id',
+                'multiple'=>false,
+                'expanded'=>true,
+                'query_builder'=>function(EntityRepository $er){
+                    return $er->createQueryBuilder('Admin')->orderBy('Admin.id', 'ASC');
+                }
+            ))
             ->add('idAppartenir', EntityType::class, [
                 'class' => Service::class,
                 'choice_label' => function ($service) {

@@ -147,7 +147,8 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
         // line 85
-        echo "        <footer class=\"page-footer font-small\" style=\"color:white; position: absolute; bottom: 0; left: 0; right: 0; background-color: #3F729B;\">
+        echo "        <br/><br/>
+        <footer class=\"page-footer font-small\" style=\"color:white; position: absolute; bottom: 0; left: 0; right: 0; background-color: #3F729B;\">
             <div class=\"footer-copyright py-3\">
                 <table width=\"100%\">
                     <tr width=\"100%\">
@@ -159,7 +160,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
                         </td>
                         <td width=\"45%\" class=\"text-right\">
                             © 
-                            <a href=\"#\"> Powered By TALENSOFT </a>
+                            <a href=\"#\"> Powered By TALENTSOFT </a>
                         </td>
                         <td width=\"5%\"></td>
                     </tr>
@@ -262,7 +263,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     public function getDebugInfo()
     {
-        return array (  236 => 84,  218 => 83,  200 => 20,  181 => 5,  150 => 85,  147 => 84,  145 => 83,  85 => 26,  79 => 25,  73 => 21,  71 => 20,  53 => 5,  47 => 1,);
+        return array (  237 => 84,  219 => 83,  201 => 20,  182 => 5,  150 => 85,  147 => 84,  145 => 83,  85 => 26,  79 => 25,  73 => 21,  71 => 20,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -351,6 +352,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
         </header>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+        <br/><br/>
         <footer class=\"page-footer font-small\" style=\"color:white; position: absolute; bottom: 0; left: 0; right: 0; background-color: #3F729B;\">
             <div class=\"footer-copyright py-3\">
                 <table width=\"100%\">
@@ -363,7 +365,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
                         </td>
                         <td width=\"45%\" class=\"text-right\">
                             © 
-                            <a href=\"#\"> Powered By TALENSOFT </a>
+                            <a href=\"#\"> Powered By TALENTSOFT </a>
                         </td>
                         <td width=\"5%\"></td>
                     </tr>

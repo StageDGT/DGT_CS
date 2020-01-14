@@ -26,4 +26,5 @@ return [
     'menu' => [[], ['_controller' => 'App\\Controller\\HomeController::menu'], [], [['text', '/menu']], [], []],
     'login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
     'logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
+    'tslms' => [[], ['_controller' => 'App\\Controller\\TSLMSController::index'], [], [['text', '/tslms']], [], []],
 ];

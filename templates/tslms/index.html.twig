@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<main>
+    <table width="100%" height="100%">
+        <tr width="100%" height="100%">
+            {% include 'menu_deroulant.html.twig' %}
+            <td width="100%" class="text-center" onmouseover="FermerMenu()">
+                <!-- Contenu de la page -->
+                <br/>
+                <!--<iframe src="" width="100%" height="100%"></iframe>-->
+            </td>
+        </tr>
+    </table>
+</main>
+{% endblock %}

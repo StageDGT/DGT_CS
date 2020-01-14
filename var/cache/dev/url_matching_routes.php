@@ -20,6 +20,7 @@ return [
         '/menu' => [[['_route' => 'menu', '_controller' => 'App\\Controller\\HomeController::menu'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
+        '/tslms' => [[['_route' => 'tslms', '_controller' => 'App\\Controller\\TSLMSController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

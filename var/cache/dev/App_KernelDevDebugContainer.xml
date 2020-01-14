@@ -326,6 +326,13 @@
         <argument type="service" id=".service_locator.SXie53V.App\Controller\SecurityController"/>
       </call>
     </service>
+    <service id="App\Controller\TSLCMSController" class="App\Controller\TSLCMSController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.SXie53V.App\Controller\TSLCMSController"/>
+      </call>
+    </service>
     <service id="App\Controller\TSLMSController" class="App\Controller\TSLMSController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -4711,6 +4718,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TSLCMSController" class="App\Controller\TSLCMSController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TSLCMSController" class="App\Controller\TSLCMSController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\TSLCMSController" class="App\Controller\TSLCMSController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TSLMSController" class="App\Controller\TSLMSController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TSLMSController" class="App\Controller\TSLMSController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\TSLMSController" class="App\Controller\TSLMSController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5220,6 +5230,12 @@
     <service id=".service_locator.SXie53V.App\Controller\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\SecurityController"/>
       <argument>App\Controller\SecurityController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.SXie53V" method="withContext"/>
+    </service>
+    <service id=".service_locator.SXie53V.App\Controller\TSLCMSController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\TSLCMSController"/>
+      <argument>App\Controller\TSLCMSController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.SXie53V" method="withContext"/>
     </service>

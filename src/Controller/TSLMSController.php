@@ -33,15 +33,9 @@ class TSLMSController extends AbstractController
                 die();
                 
             }
-            else {
-            //    afficherErreur('login ou mot de passe incorrect');
-            }
-        } 
-        else {
-           // afficherErreur('login ou mot de passe incorrect');
         }
 
-        return $this->render('tslms/index.html.twig', ['ssoUrl'=>$sso_URL]);
+        //return $this->render('tslms/index.html.twig', ['ssoUrl'=>$sso_URL]);
     }
 
     /*

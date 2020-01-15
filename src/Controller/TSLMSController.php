@@ -16,9 +16,9 @@ class TSLMSController extends AbstractController
         $theUser=$this->getUser();
         $login=$theUser->getLogin();
         $password=$theUser->getMdp();
-        $url=$theUser->getIdSociete()->getUrl();
-        $loginParam=$theUser->getIdSociete()->getLogin();
-        $mdpParam=$theUser->getIdSociete()->getMdp();
+        $url=$theUser->getIdSociete()->getUrllms();
+        $loginParam=$theUser->getIdSociete()->getLoginlms();
+        $mdpParam=$theUser->getIdSociete()->getMdplms();
 
         $repository = $this->getDoctrine()->getRepository(Utilisateur::class);
         $superAdmin= $repository->find(0);

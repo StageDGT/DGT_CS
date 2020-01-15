@@ -25,9 +25,9 @@ class TSLCMSController extends AbstractController
         $date = new \DateTime();
         $date= $date->getTimestamp();
 
-        $url=$theUser->getIdSociete()->getUrl();
-        $loginParam=$theUser->getIdSociete()->getLogin();
-        $mdpParam=$theUser->getIdSociete()->getMdp();
+        $url=$theUser->getIdSociete()->getUrllcms();
+        $loginParam=$theUser->getIdSociete()->getLoginlcms();
+        $mdpParam=$theUser->getIdSociete()->getMdplcms();
 
         $repository = $this->getDoctrine()->getRepository(Utilisateur::class);
         $superAdmin= $repository->find(0);

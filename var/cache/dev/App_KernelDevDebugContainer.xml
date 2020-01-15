@@ -393,7 +393,10 @@
     <service id="App\Form\ModifierUtilisateurType" class="App\Form\ModifierUtilisateurType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\ParametresType" class="App\Form\ParametresType" autowire="true" autoconfigure="true">
+    <service id="App\Form\ParametresLCMSType" class="App\Form\ParametresLCMSType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ParametresLMSType" class="App\Form\ParametresLMSType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Repository\ServiceRepository" class="App\Repository\ServiceRepository" autowire="true" autoconfigure="true">
@@ -823,7 +826,8 @@
         <argument>App\Form\GererUtilisateurType</argument>
         <argument>App\Form\ModifierAdminType</argument>
         <argument>App\Form\ModifierUtilisateurType</argument>
-        <argument>App\Form\ParametresType</argument>
+        <argument>App\Form\ParametresLCMSType</argument>
+        <argument>App\Form\ParametresLMSType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1152,7 +1156,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.3MnUmxQ"/>
+      <argument type="service" id=".service_locator.Rmpr.1v"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -4937,8 +4941,10 @@
     <service id=".abstract.instanceof.App\Form\ModifierAdminType" class="App\Form\ModifierAdminType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ModifierUtilisateurType" class="App\Form\ModifierUtilisateurType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ModifierUtilisateurType" class="App\Form\ModifierUtilisateurType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ParametresType" class="App\Form\ParametresType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\ParametresType" class="App\Form\ParametresType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ParametresLCMSType" class="App\Form\ParametresLCMSType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ParametresLCMSType" class="App\Form\ParametresLCMSType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ParametresLMSType" class="App\Form\ParametresLMSType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ParametresLMSType" class="App\Form\ParametresLMSType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ServiceRepository" class="App\Repository\ServiceRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ServiceRepository" class="App\Repository\ServiceRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
@@ -5208,7 +5214,7 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.3MnUmxQ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.Rmpr.1v" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AjoutAdminType" type="service" id="App\Form\AjoutAdminType"/>
@@ -5217,7 +5223,8 @@
         <argument key="App\Form\GererUtilisateurType" type="service" id="App\Form\GererUtilisateurType"/>
         <argument key="App\Form\ModifierAdminType" type="service" id="App\Form\ModifierAdminType"/>
         <argument key="App\Form\ModifierUtilisateurType" type="service" id="App\Form\ModifierUtilisateurType"/>
-        <argument key="App\Form\ParametresType" type="service" id="App\Form\ParametresType"/>
+        <argument key="App\Form\ParametresLCMSType" type="service" id="App\Form\ParametresLCMSType"/>
+        <argument key="App\Form\ParametresLMSType" type="service" id="App\Form\ParametresLMSType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service" id="form.type.file"/>

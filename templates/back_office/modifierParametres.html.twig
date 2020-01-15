@@ -21,36 +21,63 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm"></div>
                                 {% if theUser.role == 1 %}
                                 <div class="col-sm bg-white">
                                     <br/>
-                                    {{ form_start(form) }}
+                                    {{ form_start(formLCMS) }}
                                         <div class="form-group">   
                                             <label>URL</label>
-                                            {{ form_widget(form.url, { attr: {'class': 'form-control'} })}}
+                                            {{ form_widget(formLCMS.urllcms, { attr: {'class': 'form-control'} })}}
                                         </div>
                                         <div class="form-group">   
                                             <label>Login Super Admin</label>
-                                            {{ form_widget(form.loginsuperadmin, { attr: {'class': 'form-control'} })}}
+                                            {{ form_widget(formLCMS.loginsuperadmin, { attr: {'class': 'form-control'} })}}
                                         </div>
                                         <div class="form-group">   
                                             <label>Login</label>
-                                            {{ form_widget(form.login, { attr: {'class': 'form-control'} })}}
+                                            {{ form_widget(formLCMS.loginlcms, { attr: {'class': 'form-control'} })}}
                                         </div>
                                         <div class="form-group">   
                                             <label>Mot de passe</label>
-                                            {{ form_widget(form.mdp, { attr: {'class': 'form-control'} })}}
+                                            {{ form_widget(formLCMS.mdplcms, { attr: {'class': 'form-control'} })}}
                                         </div>
                                         
                                         <button type="submit" class="btn btn-primary btn-block">Valider</button>
-                                    {{ form_end(form) }}
+                                    {{ form_end(formLCMS) }}
                                     <br/>
                                         <a href="{{ path('supprParam') }}" class="btn btn-danger btn-block">Réinitialiser</a>
                                     <br/>
                                 </div>
                                 {% endif %}
-                                <div class="col-sm"></div>
+                                <div class="col-sm">
+                                {% if theUser.role == 1 %}
+                                <div class="col-sm bg-white">
+                                    <br/>
+                                    {{ form_start(formLMS) }}
+                                        <div class="form-group">   
+                                            <label>URL</label>
+                                            {{ form_widget(formLMS.urllms, { attr: {'class': 'form-control'} })}}
+                                        </div>
+                                        <div class="form-group">   
+                                            <label>Login Super Admin</label>
+                                            {{ form_widget(formLMS.loginsuperadmin, { attr: {'class': 'form-control'} })}}
+                                        </div>
+                                        <div class="form-group">   
+                                            <label>Login</label>
+                                            {{ form_widget(formLMS.loginlms, { attr: {'class': 'form-control'} })}}
+                                        </div>
+                                        <div class="form-group">   
+                                            <label>Mot de passe</label>
+                                            {{ form_widget(formLMS.mdplms, { attr: {'class': 'form-control'} })}}
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-primary btn-block">Valider</button>
+                                    {{ form_end(formLMS) }}
+                                    <br/>
+                                        <a href="{{ path('supprParam') }}" class="btn btn-danger btn-block">Réinitialiser</a>
+                                    <br/>
+                                </div>
+                                {% endif %}</div>
                             </div>
                         </div>
                     </div>

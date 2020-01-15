@@ -24,9 +24,16 @@ class Societe
     /**
      * @var string|null
      *
-     * @ORM\Column(name="URL", type="string", length=128, nullable=true)
+     * @ORM\Column(name="URLLCMS", type="string", length=128, nullable=true)
      */
-    private $url;
+    private $urllcms;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="URLLMS", type="string", length=128, nullable=false)
+     */
+    private $urllms;
 
     /**
      * @var string|null
@@ -38,30 +45,56 @@ class Societe
     /**
      * @var string|null
      *
-     * @ORM\Column(name="LOGIN", type="string", length=128, nullable=true)
+     * @ORM\Column(name="LOGINLCMS", type="string", length=128, nullable=true)
      */
-    private $login;
+    private $loginlcms;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="LOGINLMS", type="string", length=128, nullable=false)
+     */
+    private $loginlms;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="MDP", type="string", length=128, nullable=true)
+     * @ORM\Column(name="MDPLCMS", type="string", length=128, nullable=true)
      */
-    private $mdp;
+    private $mdplcms;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="MDPLMS", type="string", length=128, nullable=false)
+     */
+    private $mdplms;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getUrl(): ?string
+    public function getUrllcms(): ?string
     {
-        return $this->url;
+        return $this->urllcms;
     }
 
-    public function setUrl(?string $url): self
+    public function setUrllcms(?string $urllcms): self
     {
-        $this->url = $url;
+        $this->urllcms = $urllcms;
+
+        return $this;
+    }
+
+    public function getUrllms(): ?string
+    {
+        return $this->urllms;
+    }
+
+    public function setUrllms(string $urllms): self
+    {
+        $this->urllms = $urllms;
 
         return $this;
     }
@@ -78,26 +111,50 @@ class Societe
         return $this;
     }
 
-    public function getLogin(): ?string
+    public function getLoginlcms(): ?string
     {
-        return $this->login;
+        return $this->loginlcms;
     }
 
-    public function setLogin(?string $login): self
+    public function setLoginlcms(?string $loginlcms): self
     {
-        $this->login = $login;
+        $this->loginlcms = $loginlcms;
 
         return $this;
     }
 
-    public function getMdp(): ?string
+    public function getLoginlms(): ?string
     {
-        return $this->mdp;
+        return $this->loginlms;
     }
 
-    public function setMdp(?string $mdp): self
+    public function setLoginlms(string $loginlms): self
     {
-        $this->mdp = $mdp;
+        $this->loginlms = $loginlms;
+
+        return $this;
+    }
+
+    public function getMdplcms(): ?string
+    {
+        return $this->mdplcms;
+    }
+
+    public function setMdplcms(?string $mdplcms): self
+    {
+        $this->mdplcms = $mdplcms;
+
+        return $this;
+    }
+
+    public function getMdplms(): ?string
+    {
+        return $this->mdplms;
+    }
+
+    public function setMdplms(string $mdplms): self
+    {
+        $this->mdplms = $mdplms;
 
         return $this;
     }

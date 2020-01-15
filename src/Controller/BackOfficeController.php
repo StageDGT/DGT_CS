@@ -12,7 +12,8 @@ use App\Form\AjoutAdminType;
 use App\Form\AjoutUtilisateurType;
 use App\Form\ModifierAdminType;
 use App\Form\ModifierUtilisateurType;
-use App\Form\ParametresType;
+use App\Form\ParametresLCMSType;
+use App\Form\ParametresLMSType;
 use App\Entity\Societe;
 
 class BackOfficeController extends AbstractController
@@ -211,9 +212,13 @@ class BackOfficeController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Societe::class);
         $parametre = $repository->find($id);
 
-        $form=$this->createForm(ParametresType::class,$parametre);
-        $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid())
+        $formLCMS=$this->createForm(ParametresLCMSType::class,$parametre);
+        $formLCMS->handleRequest($request);
+
+        $formLMS=$this->createForm(ParametresLMSType::class,$parametre);
+        $formLMS->handleRequest($request);
+
+        if($formLCMS->isSubmitted() && $formLCMS->isValid())
         {
             //On affiche une notification
             $this->addFlash('success', 'Les paramètres ont bien été modifiés !');
@@ -223,13 +228,23 @@ class BackOfficeController extends AbstractController
             return $this->redirectToRoute('modifierParametres');
         }
 
-        return $this->render('/back_office/modifierParametres.html.twig', ['form' => $form->createView(), 'theUser'=>$theUser]);
+        if($formLMS->isSubmitted() && $formLMS->isValid())
+        {
+            //On affiche une notification
+            $this->addFlash('success', 'Les paramètres ont bien été modifiés !');
+            
+            $entityManager->flush();
+
+            return $this->redirectToRoute('modifierParametres');
+        }
+
+        return $this->render('/back_office/modifierParametres.html.twig', ['formLCMS' => $formLCMS->createView(), 'formLMS' => $formLMS->createView(), 'theUser'=>$theUser]);
     }
 
     /**
-     * @Route("/backoffice/supprParam", name="supprParam")
+     * @Route("/backoffice/supprParamLCMS", name="supprParamLCMS")
      */
-    public function supprParam(Request $request)
+    public function supprParamLCMS(Request $request)
     {
         $theUser=$this->getUser();
         if ($theUser->getRole() == 1)

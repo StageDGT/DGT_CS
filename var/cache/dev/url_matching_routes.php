@@ -16,6 +16,7 @@ return [
         '/backoffice' => [[['_route' => 'back_office', '_controller' => 'App\\Controller\\BackOfficeController::index'], null, null, null, false, false, null]],
         '/backoffice/creerAdmin' => [[['_route' => 'creerAdmin', '_controller' => 'App\\Controller\\BackOfficeController::creerAdmin'], null, null, null, false, false, null]],
         '/backoffice/creerUtilisateur' => [[['_route' => 'creerUtilisateur', '_controller' => 'App\\Controller\\BackOfficeController::creerUtilisateur'], null, null, null, false, false, null]],
+        '/help' => [[['_route' => 'help', '_controller' => 'App\\Controller\\HelpController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/menu' => [[['_route' => 'menu', '_controller' => 'App\\Controller\\HomeController::menu'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],

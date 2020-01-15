@@ -22,6 +22,7 @@ return [
     'supprimerUtilisateur' => [['id'], ['_controller' => 'App\\Controller\\BackOfficeController::supprimerUtilisateur'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/backoffice/supprimerUtilisateur']], [], []],
     'modifierAdmin' => [['id'], ['_controller' => 'App\\Controller\\BackOfficeController::modifierAdmin'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/backoffice/modifierAdmin']], [], []],
     'modifierUtilisateur' => [['id'], ['_controller' => 'App\\Controller\\BackOfficeController::modifierUtilisateur'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/backoffice/modifierUtilisateur']], [], []],
+    'help' => [[], ['_controller' => 'App\\Controller\\HelpController::index'], [], [['text', '/help']], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], []],
     'menu' => [[], ['_controller' => 'App\\Controller\\HomeController::menu'], [], [['text', '/menu']], [], []],
     'login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],

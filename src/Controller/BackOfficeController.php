@@ -8,9 +8,10 @@ use App\Entity\Utilisateur;
 use App\Entity\Service;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\UtilisateurRepository;
-use App\Form\GererUtilisateurType;
-use App\Form\GererAdminType;
-
+use App\Form\AjoutAdminType;
+use App\Form\AjoutUtilisateurType;
+use App\Form\ModifierAdminType;
+use App\Form\ModifierUtilisateurType;
 
 class BackOfficeController extends AbstractController
 {
@@ -25,7 +26,7 @@ class BackOfficeController extends AbstractController
         $lesUtilisateurs=$repository->findAll();
 
         $lesAdmins=$repository->findByAdmin();
-        $lesUsers=$repository->findByUser();
+        $lesUsers=$repository->findByUser($theUser->getId());
 
         return $this->render('back_office/index.html.twig', ['lesAdmin' => $lesAdmins, 'lesUtilisateurs' => $lesUsers, 'theUser'=>$theUser]);
     }
@@ -43,17 +44,20 @@ class BackOfficeController extends AbstractController
         $user->setRole(1);
         $superAdmin=$repository->find(0);
         $user->setIdDiriger($superAdmin);
-        $form=$this->createForm(GererAdminType::class,$user);
+        $form=$this->createForm(AjoutAdminType::class,$user);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
             $entityManager->persist($user);
             $entityManager->flush();
-            return $this->redirectToRoute('back_office');
 
+            //On affiche une notification
+            $this->addFlash('success', 'L\'Admin a bien été modifié !');
+
+            return $this->redirectToRoute('back_office');
         }
 
-        return $this->render('/back_office/gererAdmin.html.twig', ['form' => $form->createView(), 'user' => $user, 'theUser'=>$theUser]);
+        return $this->render('/back_office/gererAdmin.html.twig', ['form' => $form->createView(), 'user' => $user, 'theUser'=>$theUser, 'ajout'=>true]);
     }
 
     /**
@@ -75,17 +79,20 @@ class BackOfficeController extends AbstractController
         $repository=$this->getDoctrine()->getRepository(Service::class);
         $services=$repository->findAll();
 
-        $form=$this->createForm(GererUtilisateurType::class,$user);
+        $form=$this->createForm(AjoutUtilisateurType::class,$user);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
             $entityManager->persist($user);
             $entityManager->flush();
-            return $this->redirectToRoute('back_office');
 
+            //On affiche une notification
+            $this->addFlash('success', 'L\'utilisateur a bien été créé !');
+
+            return $this->redirectToRoute('back_office');
         }
 
-        return $this->render('/back_office/gererUtilisateur.html.twig', ['form' => $form->createView(), 'user' => $user, 'theUser'=>$theUser]);
+        return $this->render('/back_office/gererUtilisateur.html.twig', ['form' => $form->createView(), 'user' => $user, 'theUser'=>$theUser, 'ajout'=>true]);
     }
 
     /**
@@ -101,6 +108,8 @@ class BackOfficeController extends AbstractController
             $entityManager->remove($admin);
             $entityManager->flush();
           
+            //On affiche une notification
+            $this->addFlash('success', 'L\'Admin a bien été supprimé !');
         }
         
         return $this->redirectToRoute("back_office");  
@@ -119,6 +128,9 @@ class BackOfficeController extends AbstractController
             $utilisateur = $repository->find($id);
             $entityManager->remove($utilisateur);
             $entityManager->flush();
+
+            //On affiche une notification
+            $this->addFlash('success', 'L\'utilisateur a bien été supprimé !');
           
         }
         
@@ -135,16 +147,18 @@ class BackOfficeController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $repository = $this->getDoctrine()->getRepository(Utilisateur::class);
         $user = $repository->find($id);
-        $form=$this->createForm(GererAdminType::class,$user);
+        $form=$this->createForm(ModifierAdminType::class,$user);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
+            //On affiche une notification
+            $this->addFlash('success', 'L\'Admin a bien été modifié !');
             
             $entityManager->flush();
             return $this->redirectToRoute('back_office');
 
         }
-        return $this->render('/back_office/gererAdmin.html.twig', ['form' => $form->createView(), 'user' => $user, 'theUser'=>$theUser]);
+        return $this->render('/back_office/gererAdmin.html.twig', ['form' => $form->createView(), 'user' => $user, 'theUser'=>$theUser, 'ajout'=>false]);
     }
 
     /**
@@ -157,15 +171,17 @@ class BackOfficeController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $repository = $this->getDoctrine()->getRepository(Utilisateur::class);
         $user = $repository->find($id);
-        $form=$this->createForm(GererUtilisateurType::class,$user);
+        $form=$this->createForm(ModifierUtilisateurType::class,$user);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
+            //On affiche une notification
+            $this->addFlash('success', 'L\'utilisateur a bien été modifié !');
             
             $entityManager->flush();
             return $this->redirectToRoute('back_office');
 
         }
-        return $this->render('/back_office/gererUtilisateur.html.twig', ['form' => $form->createView(), 'user' => $user, 'theUser'=>$theUser]);
+        return $this->render('/back_office/gererUtilisateur.html.twig', ['form' => $form->createView(), 'user' => $user, 'theUser'=>$theUser, 'ajout'=>false]);
     }
 }

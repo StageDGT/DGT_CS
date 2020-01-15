@@ -23,17 +23,19 @@ class UtilisateurRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('u')
             ->andWhere('u.role = 1')
-            ->orderBy('u.id', 'ASC')
+            ->orderBy('u.nom', 'ASC')
             ->getQuery()
             ->getResult()
         ;
     }
 
-    public function findByUser()
+    public function findByUser($value)
     {
         return $this->createQueryBuilder('u')
             ->andWhere('u.role = 2')
-            ->orderBy('u.id', 'ASC')
+            ->andWhere('u.idDiriger = :val')
+            ->setParameter('val', $value)
+            ->orderBy('u.nom', 'ASC')
             ->getQuery()
             ->getResult()
         ;

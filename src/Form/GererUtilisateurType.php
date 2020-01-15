@@ -8,7 +8,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use App\Entity\Service;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class GererUtilisateurType extends AbstractType
@@ -20,7 +19,7 @@ class GererUtilisateurType extends AbstractType
             ->add('prenom')
             ->add('mail')
             ->add('telephone')
-            ->add('portable')
+         //   ->add('portable')
          //   ->add('nblicence')
          //   ->add('verrounblicence')
          //   ->add('societe')

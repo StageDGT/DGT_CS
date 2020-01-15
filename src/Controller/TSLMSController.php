@@ -23,16 +23,11 @@ class TSLMSController extends AbstractController
         // si l'utilisateur existe
         if($user)
         {
-            // si le mot de passe est correct
-            if($client->__call('isUserValidCredentials', ['login' => $login,'password' => $password]))
-            {
-                $sso_key = $client->__call("createSSOSecurityKey",array('uid' => $user->user_id));
-                $sso_URL = $elmg_url.'sso.php?skey='.$sso_key;
-                
-                header("location: ${sso_URL}");
-                die();
-                
-            }
+            $sso_key = $client->__call("createSSOSecurityKey",array('uid' => $user->user_id));
+            $sso_URL = $elmg_url.'sso.php?skey='.$sso_key;
+            
+            header("location: ${sso_URL}");
+            die();
         }
 
         //return $this->render('tslms/index.html.twig', ['ssoUrl'=>$sso_URL]);

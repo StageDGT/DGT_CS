@@ -10,6 +10,16 @@
                     <div class="text-align center">
                         <div class="container">
                             <div class="row">
+                                <div class="col-sm">
+                                    <!-- Affiche un message succès -->
+                                    {% for message in app.flashes('success') %}
+                                        <div class="alert alert-success" role="alert">
+                                        {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="row">
                                 {% if theUser.role == 0 %}
                                 <div class="col-sm bg-white">
                                     <br/>

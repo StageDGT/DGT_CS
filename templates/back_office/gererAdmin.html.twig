@@ -48,17 +48,18 @@
                                     <label>Verrouiller nombre de licence</label>
                                     {{ form_widget(form.verrounblicence, { attr: {'class': 'form-control'} })}}
                                 </div>
+
+                                {% if ajout %}
                                 <div class="form-group">     
                                     <label>Société</label>
                                     {{ form_widget(form.societe, { attr: {'class': 'form-control'} })}}
-                                </div>
-
-                                
-
+                                </div>                               
                                 <div class="form-group">     
                                     <label>Identifiant</label>
                                     {{ form_widget(form.login, { attr: {'class': 'form-control'} })}}
                                 </div>
+                                {% endif %}
+
                                 <div class="form-group">     
                                     <label>Mot de passe</label>
                                     {{ form_widget(form.mdp, { attr: {'class': 'form-control'} })}}

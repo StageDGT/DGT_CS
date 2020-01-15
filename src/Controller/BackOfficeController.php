@@ -256,10 +256,9 @@ class BackOfficeController extends AbstractController
             $repository = $this->getDoctrine()->getRepository(Societe::class);
             $parametre = $repository->find($id);
             
-            $parametre->setUrl(null);
-            $parametre->setLoginsuperadmin(null);
-            $parametre->setLogin(null);
-            $parametre->setMdp(null);
+            $parametre->setUrllcms(null);
+            $parametre->setLoginlcms(null);
+            $parametre->setMdplcms(null);
         
             $entityManager->flush();
             

@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * Utilisateur
  *
- * @ORM\Table(name="UTILISATEUR", indexes={@ORM\Index(name="I_FK_UTILISATEUR_SERVICE", columns={"ID_APPARTENIR"}), @ORM\Index(name="I_FK_UTILISATEUR_UTILISATEUR", columns={"ID_DIRIGER"})})
+ * @ORM\Table(name="UTILISATEUR", indexes={@ORM\Index(name="I_FK_UTILISATEUR_UTILISATEUR", columns={"ID_DIRIGER"}), @ORM\Index(name="I_FK_UTILISATEUR_SERVICE", columns={"ID_APPARTENIR"}), @ORM\Index(name="I_FK_UTILISATEUR_SOCIETE", columns={"ID_SOCIETE"})})
  * @ORM\Entity(repositoryClass="App\Repository\UtilisateurRepository")
  */
 class Utilisateur implements UserInterface, \Serializable
@@ -100,6 +100,13 @@ class Utilisateur implements UserInterface, \Serializable
     private $mdp;
 
     /**
+     * @var bool|null
+     *
+     * @ORM\Column(name="VERROUADMIN", type="boolean", nullable=true)
+     */
+    private $verrouadmin = '0';
+
+    /**
      * @var \Service
      *
      * @ORM\ManyToOne(targetEntity="Service")
@@ -118,6 +125,16 @@ class Utilisateur implements UserInterface, \Serializable
      * })
      */
     private $idDiriger;
+
+    /**
+     * @var \Societe
+     *
+     * @ORM\ManyToOne(targetEntity="Societe")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_SOCIETE", referencedColumnName="ID")
+     * })
+     */
+    private $idSociete;
 
     public function getId(): ?int
     {
@@ -256,6 +273,18 @@ class Utilisateur implements UserInterface, \Serializable
         return $this;
     }
 
+    public function getVerrouadmin(): ?bool
+    {
+        return $this->verrouadmin;
+    }
+
+    public function setVerrouadmin(?bool $verrouadmin): self
+    {
+        $this->verrouadmin = $verrouadmin;
+
+        return $this;
+    }
+
     public function getIdAppartenir(): ?Service
     {
         return $this->idAppartenir;
@@ -276,6 +305,18 @@ class Utilisateur implements UserInterface, \Serializable
     public function setIdDiriger(?self $idDiriger): self
     {
         $this->idDiriger = $idDiriger;
+
+        return $this;
+    }
+
+    public function getIdSociete(): ?Societe
+    {
+        return $this->idSociete;
+    }
+
+    public function setIdSociete(?Societe $idSociete): self
+    {
+        $this->idSociete = $idSociete;
 
         return $this;
     }

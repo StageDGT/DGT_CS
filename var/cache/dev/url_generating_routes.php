@@ -22,6 +22,8 @@ return [
     'supprimerUtilisateur' => [['id'], ['_controller' => 'App\\Controller\\BackOfficeController::supprimerUtilisateur'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/backoffice/supprimerUtilisateur']], [], []],
     'modifierAdmin' => [['id'], ['_controller' => 'App\\Controller\\BackOfficeController::modifierAdmin'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/backoffice/modifierAdmin']], [], []],
     'modifierUtilisateur' => [['id'], ['_controller' => 'App\\Controller\\BackOfficeController::modifierUtilisateur'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/backoffice/modifierUtilisateur']], [], []],
+    'modifierParametres' => [[], ['_controller' => 'App\\Controller\\BackOfficeController::modifierParametres'], [], [['text', '/backoffice/modifierParametres']], [], []],
+    'supprParam' => [[], ['_controller' => 'App\\Controller\\BackOfficeController::supprParam'], [], [['text', '/backoffice/supprParam']], [], []],
     'help' => [[], ['_controller' => 'App\\Controller\\HelpController::index'], [], [['text', '/help']], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], []],
     'menu' => [[], ['_controller' => 'App\\Controller\\HomeController::menu'], [], [['text', '/menu']], [], []],

@@ -24,7 +24,7 @@
                                 <div class="col-sm bg-white">
                                     <br/>
                                     <h3>Gérer les Administrateurs</h3><hr/>
-                                    <a href='{{path("creerAdmin")}}' type='button' class="btn btn-success">Ajouter un Administrateur</a><br/><hr/><br/>
+                                    <a href='{{path("creerAdmin")}}' type='button' class="btn btn-success btn-block">Ajouter un Administrateur</a><br/><hr/><br/>
                                     <table class="table table-sm">
                                         <thead>
                                           <tr>
@@ -41,13 +41,13 @@
                                             <td style="vertical-align: middle;">{{unAdmin.nom}}</td>
                                             <td style="vertical-align: middle;">{{unAdmin.prenom}}</td>
                                             <td style="vertical-align: middle;">{{unAdmin.societe}}</td>
-                                            <td style="vertical-align: middle;"><a href='{{path("modifierAdmin", {'id': unAdmin.id})}}' type='button' class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a></td>
+                                            <td style="vertical-align: middle;"><a href='{{path("modifierAdmin", {'id': unAdmin.id})}}' type='button' class="btn btn-primary btn-sm btn-block"><i class="fas fa-edit"></i></a></td>
                                             <td style="vertical-align: middle;">
                                                 <form action="{{ path('supprimerAdmin', {id : unAdmin.id})}}" method="post" onSubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet Administrateur ?')">
                                                     
                                                     <input type="hidden" name="_method" value="DELETE"></input>
                                                     <input type="hidden" name="_token" value="{{csrf_token('delete'~ unAdmin.id)}}"></input>
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button> 
+                                                    <button type="submit" class="btn btn-danger btn-sm btn-block"><i class="fas fa-trash"></i></button> 
                                                 </form>
                                             </td>
                                           </tr>
@@ -60,7 +60,7 @@
                                 <div class="col-sm bg-white">
                                     <br/>
                                     <h3>Gérer les Utilisateurs</h3><hr/>
-                                    <a href='{{path("creerUtilisateur")}}' type='button' class="btn btn-success">Ajouter un Utilisateur</a><br/><hr/><br/>
+                                    <a href='{{path("creerUtilisateur")}}' type='button' class="btn btn-success btn-block">Ajouter un Utilisateur</a><br/><hr/><br/>
                                     <table class="table table-sm">
                                         <thead>
                                           <tr>
@@ -77,12 +77,12 @@
                                                 <td style="vertical-align: middle;">{{unUtilisateur.nom}}</td>
                                                 <td style="vertical-align: middle;">{{unUtilisateur.prenom}}</td>
                                                 <td style="vertical-align: middle;">{{unUtilisateur.idAppartenir.libelle}}</td>
-                                                <td style="vertical-align: middle;"><a href='{{path("modifierUtilisateur", {'id': unUtilisateur.id})}}' type='button' class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a></td>
+                                                <td style="vertical-align: middle;"><a href='{{path("modifierUtilisateur", {'id': unUtilisateur.id})}}' type='button' class="btn btn-primary btn-sm btn-block"><i class="fas fa-edit"></i></a></td>
                                                 <td style="vertical-align: middle;">
                                                     <form action="{{ path('supprimerUtilisateur', {id : unUtilisateur.id})}}" method="post" onSubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet Utilisateur ?')">
                                                         <input type="hidden" name="_method" value="DELETE"></input>
                                                         <input type="hidden" name="_token" value="{{csrf_token('delete'~ unUtilisateur.id)}}"></input>
-                                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button> 
+                                                        <button type="submit" class="btn btn-danger btn-sm btn-block"><i class="fas fa-trash"></i></button> 
                                                     </form>
                                                 </td>
                                             </tr>

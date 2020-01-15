@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Utilisateur;
 
 class TSLMSController extends AbstractController
 {
@@ -15,9 +16,22 @@ class TSLMSController extends AbstractController
         $theUser=$this->getUser();
         $login=$theUser->getLogin();
         $password=$theUser->getMdp();
+        $url=$theUser->getIdSociete()->getUrl();
+        $loginParam=$theUser->getIdSociete()->getLogin();
+        $mdpParam=$theUser->getIdSociete()->getMdp();
 
-        $elmg_url = 'https://dgtconcept.elmg.net/';
-        $client = new \SoapClient($elmg_url.'ws.php?wsdl');
+        $repository = $this->getDoctrine()->getRepository(Utilisateur::class);
+        $superAdmin= $repository->find(0);
+
+        if($url == null){
+            $elmg_url = 'https://dgtconcept.elmg.net/';
+            $soapParameters = Array('login' => $superAdmin->getLogin(), 'password' => $superAdmin->getMdp()) ;
+        }
+        else{
+            $elmg_url = $url;
+            $soapParameters = Array('login' => $loginParam, 'password' => $mdpParam) ;
+        }
+        $client = new \SoapClient($elmg_url.'ws.php?wsdl', $soapParameters);
         $user = ($client->__call("getUserInfosByLogin",array('login' => $login)));
 
         // si l'utilisateur existe

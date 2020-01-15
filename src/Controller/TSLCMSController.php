@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Utilisateur;
 
 class TSLCMSController extends AbstractController
 {
@@ -24,8 +25,21 @@ class TSLCMSController extends AbstractController
         $date = new \DateTime();
         $date= $date->getTimestamp();
 
-        $soapParameters = Array('login' => "nicolas.choffat", 'password' => "motdepasse") ;
-        $ecmg_url = 'https://dgtconcept.e-learning-suite.com/';
+        $url=$theUser->getIdSociete()->getUrl();
+        $loginParam=$theUser->getIdSociete()->getLogin();
+        $mdpParam=$theUser->getIdSociete()->getMdp();
+
+        $repository = $this->getDoctrine()->getRepository(Utilisateur::class);
+        $superAdmin= $repository->find(0);
+
+        if($url == null){
+            $ecmg_url = 'https://dgtconcept.e-learning-suite.com/';
+            $soapParameters = Array('login' => $superAdmin->getLogin(), 'password' => $superAdmin->getMdp()) ;
+        }
+        else{
+            $ecmg_url = $url;
+            $soapParameters = Array('login' => $loginParam, 'password' => $mdpParam) ;
+        }
         $client = new \SoapClient($ecmg_url.'ws.php?wsdl', $soapParameters);
         
 

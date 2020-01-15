@@ -107,16 +107,24 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
                 // line 37
                 echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("back_office");
                 echo "\">Gérer les utilisateurs</a>
-                                <div class=\"dropdown-divider\"></div>
-                                <a class=\"dropdown-item\" href=\"";
+                                ";
+                // line 38
+                if (0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 38, $this->source); })()), "user", [], "any", false, false, false, 38), "role", [], "any", false, false, false, 38), 1)) {
+                    echo "<a class=\"dropdown-item\" href=\"";
+                    echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("modifierParametres");
+                    echo "\">Paramètres</a>";
+                }
                 // line 39
+                echo "                                <div class=\"dropdown-divider\"></div>
+                                <a class=\"dropdown-item\" href=\"";
+                // line 40
                 echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
                 echo "\"><i class=\"fas fa-sign-out-alt\"></i> Déconnexion</a>
                             </div>
                         </li>
                     ";
             }
-            // line 43
+            // line 44
             echo "                    </ul>
                     <span class=\"navbar-text white-text\">
                         Digital Learning Content Manager
@@ -173,12 +181,12 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
             </style>
         </header>
         ";
-            // line 98
-            $this->displayBlock('body', $context, $blocks);
             // line 99
+            $this->displayBlock('body', $context, $blocks);
+            // line 100
             echo "        ";
             $this->displayBlock('javascripts', $context, $blocks);
-            // line 100
+            // line 101
             echo "        <br/><br/>
         <footer class=\"page-footer font-small\" style=\"color:white; position: absolute; bottom: 0; left: 0; right: 0; background-color: #3F729B;\">
             <div class=\"footer-copyright py-3\">
@@ -248,7 +256,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     }
 
-    // line 98
+    // line 99
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -266,7 +274,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     }
 
-    // line 99
+    // line 100
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -296,7 +304,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     public function getDebugInfo()
     {
-        return array (  270 => 99,  252 => 98,  234 => 22,  215 => 7,  182 => 100,  179 => 99,  177 => 98,  120 => 43,  113 => 39,  108 => 37,  102 => 34,  98 => 32,  96 => 31,  90 => 28,  84 => 27,  78 => 23,  76 => 22,  58 => 7,  52 => 3,  50 => 2,  47 => 1,);
+        return array (  278 => 100,  260 => 99,  242 => 22,  223 => 7,  190 => 101,  187 => 100,  185 => 99,  128 => 44,  121 => 40,  118 => 39,  112 => 38,  108 => 37,  102 => 34,  98 => 32,  96 => 31,  90 => 28,  84 => 27,  78 => 23,  76 => 22,  58 => 7,  52 => 3,  50 => 2,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -338,6 +346,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
                             </a>
                             <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
                                 <a class=\"dropdown-item\" href=\"{{ path('back_office') }}\">Gérer les utilisateurs</a>
+                                {% if app.user.role == 1 %}<a class=\"dropdown-item\" href=\"{{ path('modifierParametres') }}\">Paramètres</a>{% endif %}
                                 <div class=\"dropdown-divider\"></div>
                                 <a class=\"dropdown-item\" href=\"{{ path('logout') }}\"><i class=\"fas fa-sign-out-alt\"></i> Déconnexion</a>
                             </div>

@@ -12,6 +12,8 @@ use App\Form\AjoutAdminType;
 use App\Form\AjoutUtilisateurType;
 use App\Form\ModifierAdminType;
 use App\Form\ModifierUtilisateurType;
+use App\Form\ParametresType;
+use App\Entity\Societe;
 
 class BackOfficeController extends AbstractController
 {
@@ -39,11 +41,21 @@ class BackOfficeController extends AbstractController
         $theUser=$this->getUser();
 
         $entityManager = $this->getDoctrine()->getManager();
+
+        //On créé les paramètres associés au compte
+        $repository=$this->getDoctrine()->getRepository(Societe::class);
+        $societe=new Societe;
+        $entityManager->persist($societe);
+        $entityManager->flush();
+
         $repository=$this->getDoctrine()->getRepository(Utilisateur::class);
+
         $user=new Utilisateur;
         $user->setRole(1);
         $superAdmin=$repository->find(0);
         $user->setIdDiriger($superAdmin);
+        $user->setIdSociete($societe);
+
         $form=$this->createForm(AjoutAdminType::class,$user);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
@@ -183,5 +195,64 @@ class BackOfficeController extends AbstractController
 
         }
         return $this->render('/back_office/gererUtilisateur.html.twig', ['form' => $form->createView(), 'user' => $user, 'theUser'=>$theUser, 'ajout'=>false]);
+    }
+
+    /**
+     * @Route("/backoffice/modifierParametres", name="modifierParametres")
+     */
+    public function modifierParametres(Request $request)
+    {
+        $theUser=$this->getUser();
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $id=$theUser->getIdSociete()->getId();
+
+        $repository = $this->getDoctrine()->getRepository(Societe::class);
+        $parametre = $repository->find($id);
+
+        $form=$this->createForm(ParametresType::class,$parametre);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid())
+        {
+            //On affiche une notification
+            $this->addFlash('success', 'Les paramètres ont bien été modifiés !');
+            
+            $entityManager->flush();
+
+            return $this->redirectToRoute('modifierParametres');
+        }
+
+        return $this->render('/back_office/modifierParametres.html.twig', ['form' => $form->createView(), 'theUser'=>$theUser]);
+    }
+
+    /**
+     * @Route("/backoffice/supprParam", name="supprParam")
+     */
+    public function supprParam(Request $request)
+    {
+        $theUser=$this->getUser();
+        if ($theUser->getRole() == 1)
+        {
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $id=$theUser->getIdSociete()->getId();
+    
+            $repository = $this->getDoctrine()->getRepository(Societe::class);
+            $parametre = $repository->find($id);
+            
+            $parametre->setUrl(null);
+            $parametre->setLoginsuperadmin(null);
+            $parametre->setLogin(null);
+            $parametre->setMdp(null);
+        
+            $entityManager->flush();
+            
+            //On affiche une notification
+            $this->addFlash('success', 'Les paramètres ont bien été réinitialisés !');
+    
+        }
+       
+        return $this->redirectToRoute('modifierParametres');
     }
 }

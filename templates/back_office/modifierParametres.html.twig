@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main>
+        <table width="100%" height="100%">
+            <tr width="100%" height="100%">
+                {% include 'menu_deroulant.html.twig' %}
+                <td width="100%" class="text-center" onmouseover="FermerMenu()">
+                    <!-- Contenu de la page -->
+                    <div class="text-align center">
+                        <h1>Paramètres de connexion</h1>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <!-- Affiche un message succès -->
+                                    {% for message in app.flashes('success') %}
+                                        <div class="alert alert-success" role="alert">
+                                        {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm"></div>
+                                {% if theUser.role == 1 %}
+                                <div class="col-sm bg-white">
+                                    <br/>
+                                    {{ form_start(form) }}
+                                        <div class="form-group">   
+                                            <label>URL</label>
+                                            {{ form_widget(form.url, { attr: {'class': 'form-control'} })}}
+                                        </div>
+                                        <div class="form-group">   
+                                            <label>Login Super Admin</label>
+                                            {{ form_widget(form.loginsuperadmin, { attr: {'class': 'form-control'} })}}
+                                        </div>
+                                        <div class="form-group">   
+                                            <label>Login</label>
+                                            {{ form_widget(form.login, { attr: {'class': 'form-control'} })}}
+                                        </div>
+                                        <div class="form-group">   
+                                            <label>Mot de passe</label>
+                                            {{ form_widget(form.mdp, { attr: {'class': 'form-control'} })}}
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-primary btn-block">Valider</button>
+                                    {{ form_end(form) }}
+                                    <br/>
+                                        <a href="{{ path('supprParam') }}" class="btn btn-danger btn-block">Réinitialiser</a>
+                                    <br/>
+                                </div>
+                                {% endif %}
+                                <div class="col-sm"></div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </main>
+{% endblock %}

@@ -300,9 +300,9 @@ class BackOfficeController extends AbstractController
     }
     
     /**
-     * @Route("/backoffice/supprParamLCMS", name="supprParamLCMS")
+     * @Route("/backoffice/supprParamSuperAdmin", name="supprParamSuperAdmin")
      */
-    public function supprParamLMS(Request $request)
+    public function supprParamSuperAdmin(Request $request)
     {
         $theUser=$this->getUser();
         if ($theUser->getRole() == 1)

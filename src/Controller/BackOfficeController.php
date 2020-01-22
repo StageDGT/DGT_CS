@@ -298,4 +298,32 @@ class BackOfficeController extends AbstractController
        
         return $this->redirectToRoute('modifierParametres');
     }
+    
+    /**
+     * @Route("/backoffice/supprParamLCMS", name="supprParamLCMS")
+     */
+    public function supprParamLMS(Request $request)
+    {
+        $theUser=$this->getUser();
+        if ($theUser->getRole() == 1)
+        {
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $id=$theUser->getIdSociete()->getId();
+    
+            $repository = $this->getDoctrine()->getRepository(Societe::class);
+            $parametre = $repository->find($id);
+            
+            $parametre->setLoginsuperadmin(null);
+        
+            $entityManager->flush();
+            
+            //On affiche une notification
+            $this->addFlash('success', 'Les paramètres ont bien été réinitialisés !');
+    
+        }
+       
+        return $this->redirectToRoute('modifierParametres');
+    }
+    
 }

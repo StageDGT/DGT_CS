@@ -14,6 +14,7 @@ use App\Form\ModifierAdminType;
 use App\Form\ModifierUtilisateurType;
 use App\Form\ParametresLCMSType;
 use App\Form\ParametresLMSType;
+use App\Form\ParametresSuperAdminType;
 use App\Entity\Societe;
 
 class BackOfficeController extends AbstractController
@@ -175,6 +176,49 @@ class BackOfficeController extends AbstractController
     }
 
     /**
+     * @Route("/backoffice/verrouAdmin/{id}", name="verrouAdmin")
+     */
+    public function verrouAdmin($id, Request $request)
+    {
+        if($id != 0){
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $repository = $this->getDoctrine()->getRepository(Utilisateur::class);
+            $admin = $repository->find($id);
+
+            $lesUsers=$repository->findByUser($admin->getId());
+
+
+
+            $verrou=$admin->getVerrouadmin();
+
+            if($verrou){
+                $admin->setVerrouadmin(false);
+            }
+            else{
+                $admin->setVerrouadmin(true);
+            }
+
+            foreach($lesUsers as $unUser){
+                $verrou=$unUser->getVerrouadmin();
+
+                if($verrou){
+                    $unUser->setVerrouadmin(false);
+                }
+                else{
+                    $unUser->setVerrouadmin(true);
+                }
+            }
+
+            $entityManager->persist($admin);
+            $entityManager->flush();
+
+        }
+
+        return $this->redirectToRoute('back_office');
+    }
+
+    /**
      * @Route("/backoffice/modifierUtilisateur/{id}", name="modifierUtilisateur")
      */
     public function modifierUtilisateur($id, Request $request)
@@ -218,6 +262,9 @@ class BackOfficeController extends AbstractController
         $formLMS=$this->createForm(ParametresLMSType::class,$parametre);
         $formLMS->handleRequest($request);
 
+        $formSA=$this->createForm(ParametresSuperAdminType::class,$parametre);
+        $formSA->handleRequest($request);
+
         if($formLCMS->isSubmitted() && $formLCMS->isValid())
         {
             //On affiche une notification
@@ -238,7 +285,17 @@ class BackOfficeController extends AbstractController
             return $this->redirectToRoute('modifierParametres');
         }
 
-        return $this->render('/back_office/modifierParametres.html.twig', ['formLCMS' => $formLCMS->createView(), 'formLMS' => $formLMS->createView(), 'theUser'=>$theUser]);
+        if($formSA->isSubmitted() && $formSA->isValid())
+        {
+            //On affiche une notification
+            $this->addFlash('success', 'Les paramètres ont bien été modifiés !');
+            
+            $entityManager->flush();
+
+            return $this->redirectToRoute('modifierParametres');
+        }
+
+        return $this->render('/back_office/modifierParametres.html.twig', ['formLCMS' => $formLCMS->createView(), 'formLMS' => $formLMS->createView(), 'formSA' => $formSA->createView(), 'theUser'=>$theUser]);
     }
 
     /**
@@ -271,7 +328,7 @@ class BackOfficeController extends AbstractController
     }
     
     /**
-     * @Route("/backoffice/supprParamLCMS", name="supprParamLCMS")
+     * @Route("/backoffice/supprParamLMS", name="supprParamLMS")
      */
     public function supprParamLMS(Request $request)
     {

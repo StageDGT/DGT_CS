@@ -49,14 +49,15 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
         // line 2
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
             // line 3
-            echo "
-<html>
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 3, $this->source); })()), "user", [], "any", false, false, false, 3), "verrouadmin", [], "any", false, false, false, 3), false)) {
+                // line 4
+                echo "<html>
     <head>
         <meta charset=\"UTF-8\">
         <title>";
-            // line 7
-            $this->displayBlock('title', $context, $blocks);
-            echo "</title>
+                // line 7
+                $this->displayBlock('title', $context, $blocks);
+                echo "</title>
         <!-- Font Awesome -->
         <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.8.2/css/all.css\">
         <!-- Bootstrap core CSS -->
@@ -72,60 +73,60 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
         <!-- MDB core JavaScript -->
         <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js\"></script>
         ";
-            // line 22
-            $this->displayBlock('stylesheets', $context, $blocks);
-            // line 23
-            echo "    </head>
+                // line 22
+                $this->displayBlock('stylesheets', $context, $blocks);
+                // line 23
+                echo "    </head>
     <body>
         <header>
             <nav class=\"navbar navbar-expand-lg navbar-dark special-color-dark\">
                 <a href=\"";
-            // line 27
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("menu");
-            echo "\"><img src=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("image/" . "logo.png")), "html", null, true);
-            echo "\" /></a>
+                // line 27
+                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("menu");
+                echo "\"><img src=\"";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("image/" . "logo.png")), "html", null, true);
+                echo "\" /></a>
                 <a class=\"navbar-brand\" href=\"";
-            // line 28
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("menu");
-            echo "\">DGT Creator Services</a>
+                // line 28
+                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("menu");
+                echo "\">DGT Creator Services</a>
                 <div class=\"collapse navbar-collapse\" id=\"navbarText\">
                     <ul class=\"navbar-nav mr-auto\">
                     ";
-            // line 31
-            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-                // line 32
-                echo "                        <li class=\"nav-item dropdown\">
+                // line 31
+                if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
+                    // line 32
+                    echo "                        <li class=\"nav-item dropdown\">
                             <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                                 <i class=\"fas fa-cog\"></i> Connecté en tant que ";
-                // line 34
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 34, $this->source); })()), "user", [], "any", false, false, false, 34), "username", [], "any", false, false, false, 34), "html", null, true);
-                echo "
+                    // line 34
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 34, $this->source); })()), "user", [], "any", false, false, false, 34), "username", [], "any", false, false, false, 34), "html", null, true);
+                    echo "
                             </a>
                             <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
                                 <a class=\"dropdown-item\" href=\"";
-                // line 37
-                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("back_office");
-                echo "\">Gérer les utilisateurs</a>
+                    // line 37
+                    echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("back_office");
+                    echo "\">Gérer les utilisateurs</a>
                                 ";
-                // line 38
-                if (0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 38, $this->source); })()), "user", [], "any", false, false, false, 38), "role", [], "any", false, false, false, 38), 1)) {
-                    echo "<a class=\"dropdown-item\" href=\"";
-                    echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("modifierParametres");
-                    echo "\">Paramètres</a>";
-                }
-                // line 39
-                echo "                                <div class=\"dropdown-divider\"></div>
+                    // line 38
+                    if (0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 38, $this->source); })()), "user", [], "any", false, false, false, 38), "role", [], "any", false, false, false, 38), 1)) {
+                        echo "<a class=\"dropdown-item\" href=\"";
+                        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("modifierParametres");
+                        echo "\">Paramètres</a>";
+                    }
+                    // line 39
+                    echo "                                <div class=\"dropdown-divider\"></div>
                                 <a class=\"dropdown-item\" href=\"";
-                // line 40
-                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
-                echo "\"><i class=\"fas fa-sign-out-alt\"></i> Déconnexion</a>
+                    // line 40
+                    echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
+                    echo "\"><i class=\"fas fa-sign-out-alt\"></i> Déconnexion</a>
                             </div>
                         </li>
                     ";
-            }
-            // line 44
-            echo "                    </ul>
+                }
+                // line 44
+                echo "                    </ul>
                     <span class=\"navbar-text white-text\">
                         Digital Learning Content Manager
                     </span>
@@ -181,13 +182,13 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
             </style>
         </header>
         ";
-            // line 99
-            $this->displayBlock('body', $context, $blocks);
-            // line 100
-            echo "        ";
-            $this->displayBlock('javascripts', $context, $blocks);
-            // line 101
-            echo "        <br/><br/>
+                // line 99
+                $this->displayBlock('body', $context, $blocks);
+                // line 100
+                echo "        ";
+                $this->displayBlock('javascripts', $context, $blocks);
+                // line 101
+                echo "        <br/><br/>
         <footer class=\"page-footer font-small\" style=\"color:white; position: absolute; bottom: 0; left: 0; right: 0; background-color: #3F729B;\">
             <div class=\"footer-copyright py-3\">
                 <table width=\"100%\">
@@ -210,6 +211,11 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
     </body>
 </html>
 ";
+            } else {
+                // line 124
+                echo "<h1>Votre compte est verrouillé</h1>
+";
+            }
         }
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -304,14 +310,14 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     public function getDebugInfo()
     {
-        return array (  278 => 100,  260 => 99,  242 => 22,  223 => 7,  190 => 101,  187 => 100,  185 => 99,  128 => 44,  121 => 40,  118 => 39,  112 => 38,  108 => 37,  102 => 34,  98 => 32,  96 => 31,  90 => 28,  84 => 27,  78 => 23,  76 => 22,  58 => 7,  52 => 3,  50 => 2,  47 => 1,);
+        return array (  284 => 100,  266 => 99,  248 => 22,  229 => 7,  216 => 124,  191 => 101,  188 => 100,  186 => 99,  129 => 44,  122 => 40,  119 => 39,  113 => 38,  109 => 37,  103 => 34,  99 => 32,  97 => 31,  91 => 28,  85 => 27,  79 => 23,  77 => 22,  59 => 7,  54 => 4,  52 => 3,  50 => 2,  47 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("<!DOCTYPE html>
 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-
+{% if app.user.verrouadmin == false %}
 <html>
     <head>
         <meta charset=\"UTF-8\">
@@ -431,6 +437,9 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
         </footer>
     </body>
 </html>
+{% else %}
+<h1>Votre compte est verrouillé</h1>
+{% endif %}
 {% endif %}", "base.html.twig", "C:\\Users\\Stagiaire\\DGTCS\\templates\\base.html.twig");
     }
 }

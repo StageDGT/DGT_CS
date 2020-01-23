@@ -33,6 +33,7 @@
                                             <th scope="col">Société</th>
                                             <th scope="col"></th>
                                             <th scope="col"></th>
+                                            <th scope="col"></th>
                                           </tr>
                                         </thead>
                                         <tbody>
@@ -49,6 +50,10 @@
                                                     <input type="hidden" name="_token" value="{{csrf_token('delete'~ unAdmin.id)}}"></input>
                                                     <button type="submit" class="btn btn-danger btn-sm btn-block"><i class="fas fa-trash"></i></button> 
                                                 </form>
+                                            </td>                                            
+                                            <td style="vertical-align: middle;">
+                                                <i class="fas fa-user-lock"></i>
+                                                <input type="checkbox" onclick="verrou({{unAdmin.id}})" {% if unAdmin.verrouadmin == 1 %}checked{% endif %}/>
                                             </td>
                                           </tr>
                                           {% endfor %}
@@ -98,4 +103,9 @@
             </tr>
         </table>
     </main>
+    <script>
+        function verrou(id){
+            location.href="/backoffice/verrouAdmin/"+id;
+        }
+    </script>
 {% endblock %}

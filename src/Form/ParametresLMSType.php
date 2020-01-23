@@ -14,7 +14,7 @@ class ParametresLMSType extends AbstractType
         $builder
             //->add('urllcms')
             ->add('urllms')
-            ->add('loginsuperadmin')
+            //->add('loginsuperadmin')
             //->add('loginlcms')
             ->add('loginlms')
             //->add('mdplcms')

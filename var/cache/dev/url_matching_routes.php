@@ -17,7 +17,9 @@ return [
         '/backoffice/creerAdmin' => [[['_route' => 'creerAdmin', '_controller' => 'App\\Controller\\BackOfficeController::creerAdmin'], null, null, null, false, false, null]],
         '/backoffice/creerUtilisateur' => [[['_route' => 'creerUtilisateur', '_controller' => 'App\\Controller\\BackOfficeController::creerUtilisateur'], null, null, null, false, false, null]],
         '/backoffice/modifierParametres' => [[['_route' => 'modifierParametres', '_controller' => 'App\\Controller\\BackOfficeController::modifierParametres'], null, null, null, false, false, null]],
-        '/backoffice/supprParam' => [[['_route' => 'supprParam', '_controller' => 'App\\Controller\\BackOfficeController::supprParam'], null, null, null, false, false, null]],
+        '/backoffice/supprParamLCMS' => [[['_route' => 'supprParamLCMS', '_controller' => 'App\\Controller\\BackOfficeController::supprParamLCMS'], null, null, null, false, false, null]],
+        '/backoffice/supprParamLMS' => [[['_route' => 'supprParamLMS', '_controller' => 'App\\Controller\\BackOfficeController::supprParamLMS'], null, null, null, false, false, null]],
+        '/backoffice/supprParamSuperAdmin' => [[['_route' => 'supprParamSuperAdmin', '_controller' => 'App\\Controller\\BackOfficeController::supprParamSuperAdmin'], null, null, null, false, false, null]],
         '/help' => [[['_route' => 'help', '_controller' => 'App\\Controller\\HelpController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/menu' => [[['_route' => 'menu', '_controller' => 'App\\Controller\\HomeController::menu'], null, null, null, false, false, null]],
@@ -53,6 +55,7 @@ return [
                         .'|Admin/([^/]++)(*:272)'
                         .'|Utilisateur/([^/]++)(*:300)'
                     .')'
+                    .'|verrouAdmin/([^/]++)(*:329)'
                 .')'
             .')/?$}sDu',
     ],
@@ -67,8 +70,9 @@ return [
         210 => [[['_route' => 'supprimerAdmin', '_controller' => 'App\\Controller\\BackOfficeController::supprimerAdmin'], ['id'], ['DELETE' => 0], null, false, true, null]],
         238 => [[['_route' => 'supprimerUtilisateur', '_controller' => 'App\\Controller\\BackOfficeController::supprimerUtilisateur'], ['id'], ['DELETE' => 0], null, false, true, null]],
         272 => [[['_route' => 'modifierAdmin', '_controller' => 'App\\Controller\\BackOfficeController::modifierAdmin'], ['id'], null, null, false, true, null]],
-        300 => [
-            [['_route' => 'modifierUtilisateur', '_controller' => 'App\\Controller\\BackOfficeController::modifierUtilisateur'], ['id'], null, null, false, true, null],
+        300 => [[['_route' => 'modifierUtilisateur', '_controller' => 'App\\Controller\\BackOfficeController::modifierUtilisateur'], ['id'], null, null, false, true, null]],
+        329 => [
+            [['_route' => 'verrouAdmin', '_controller' => 'App\\Controller\\BackOfficeController::verrouAdmin'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

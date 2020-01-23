@@ -31,7 +31,7 @@ class Societe
     /**
      * @var string
      *
-     * @ORM\Column(name="URLLMS", type="string", length=128, nullable=false)
+     * @ORM\Column(name="URLLMS", type="string", length=128, nullable=true)
      */
     private $urllms;
 
@@ -45,6 +45,13 @@ class Societe
     /**
      * @var string|null
      *
+     * @ORM\Column(name="MDPSUPERADMIN", type="string", length=128, nullable=true)
+     */
+    private $mdpsuperadmin;
+
+    /**
+     * @var string|null
+     *
      * @ORM\Column(name="LOGINLCMS", type="string", length=128, nullable=true)
      */
     private $loginlcms;
@@ -52,7 +59,7 @@ class Societe
     /**
      * @var string
      *
-     * @ORM\Column(name="LOGINLMS", type="string", length=128, nullable=false)
+     * @ORM\Column(name="LOGINLMS", type="string", length=128, nullable=true)
      */
     private $loginlms;
 
@@ -66,7 +73,7 @@ class Societe
     /**
      * @var string
      *
-     * @ORM\Column(name="MDPLMS", type="string", length=128, nullable=false)
+     * @ORM\Column(name="MDPLMS", type="string", length=128, nullable=true)
      */
     private $mdplms;
 
@@ -107,6 +114,18 @@ class Societe
     public function setLoginsuperadmin(?string $loginsuperadmin): self
     {
         $this->loginsuperadmin = $loginsuperadmin;
+
+        return $this;
+    }
+
+    public function getMdpsuperadmin(): ?string
+    {
+        return $this->mdpsuperadmin;
+    }
+
+    public function setMdpsuperadmin(?string $mdpsuperadmin): self
+    {
+        $this->mdpsuperadmin = $mdpsuperadmin;
 
         return $this;
     }

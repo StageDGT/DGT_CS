@@ -23,7 +23,7 @@ class TSLMSController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Utilisateur::class);
         $superAdmin= $repository->find(0);
 
-        if($url == null){
+        if($url == null || $url == ""){
             $elmg_url = 'https://dgtconcept.elmg.net/';
             $soapParameters = Array('login' => $superAdmin->getLogin(), 'password' => $superAdmin->getMdp()) ;
         }

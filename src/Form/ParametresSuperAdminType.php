@@ -6,6 +6,7 @@ use App\Entity\Societe;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class ParametresSuperAdminType extends AbstractType
 {
@@ -15,6 +16,7 @@ class ParametresSuperAdminType extends AbstractType
             //->add('urllcms')
             //->add('urllms')
             ->add('loginsuperadmin')
+            ->add('mdpsuperadmin', PasswordType::class)
             //->add('loginlcms')
             //->add('loginlms')
             //->add('mdplcms')

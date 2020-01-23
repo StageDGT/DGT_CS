@@ -119,6 +119,18 @@ class BackOfficeController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $repository = $this->getDoctrine()->getRepository(Utilisateur::class);
             $admin = $repository->find($id);
+            $lesUsers=$repository->findByUser($admin->getId());
+
+            foreach($lesUsers as $unUser)
+            {
+                $entityManager->remove($unUser);   
+            }
+
+            $idParamSociete=$admin->getIdSociete();
+            $repository=$this->getDoctrine()->getRepository(Societe::class);
+            $paramSociete=$repository->find($idParamSociete);
+            $entityManager->remove($paramSociete);
+
             $entityManager->remove($admin);
             $entityManager->flush();
           
@@ -372,6 +384,7 @@ class BackOfficeController extends AbstractController
             $parametre = $repository->find($id);
             
             $parametre->setLoginsuperadmin(null);
+            $parametre->setMdpsuperadmin(null);
         
             $entityManager->flush();
             

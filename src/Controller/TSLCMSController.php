@@ -32,7 +32,7 @@ class TSLCMSController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Utilisateur::class);
         $superAdmin= $repository->find(0);
 
-        if($url == null){
+        if($url == null || $url =""){
             $ecmg_url = 'https://dgtconcept.e-learning-suite.com/';
             $soapParameters = Array('login' => $superAdmin->getLogin(), 'password' => $superAdmin->getMdp()) ;
         }

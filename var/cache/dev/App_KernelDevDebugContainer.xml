@@ -19,6 +19,7 @@
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
       <parameter key="SwiftmailerBundle">Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle</parameter>
+      <parameter key="JWTAuthBundle">Auth0\JWTAuthBundle\JWTAuthBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -68,6 +69,10 @@
       <parameter key="SwiftmailerBundle" type="collection">
         <parameter key="path">C:\Users\Stagiaire\DGTCS\vendor\symfony\swiftmailer-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\SwiftmailerBundle</parameter>
+      </parameter>
+      <parameter key="JWTAuthBundle" type="collection">
+        <parameter key="path">C:\Users\Stagiaire\DGTCS\vendor\auth0\jwt-auth-bundle\src</parameter>
+        <parameter key="namespace">Auth0\JWTAuthBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -234,6 +239,14 @@
       <parameter key="default">swiftmailer.mailer.default</parameter>
     </parameter>
     <parameter key="swiftmailer.default_mailer">default</parameter>
+    <parameter key="jwt_auth.api_secret"></parameter>
+    <parameter key="jwt_auth.domain"></parameter>
+    <parameter key="jwt_auth.api_identifier"></parameter>
+    <parameter key="jwt_auth.authorized_issuer" type="collection"/>
+    <parameter key="jwt_auth.secret_base64_encoded">false</parameter>
+    <parameter key="jwt_auth.supported_algs" type="collection">
+      <parameter>RS256</parameter>
+    </parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -331,6 +344,13 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.SXie53V.App\Controller\BackOfficeController"/>
+      </call>
+    </service>
+    <service id="App\Controller\DispatcherController" class="App\Controller\DispatcherController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.SXie53V.App\Controller\DispatcherController"/>
       </call>
     </service>
     <service id="App\Controller\HelpController" class="App\Controller\HelpController" public="true" autowire="true" autoconfigure="true">
@@ -1798,6 +1818,7 @@
           <argument>C:\Users\Stagiaire\DGTCS\vendor\symfony\security-bundle/translations</argument>
           <argument>C:\Users\Stagiaire\DGTCS\vendor\symfony\maker-bundle\src/translations</argument>
           <argument>C:\Users\Stagiaire\DGTCS\vendor\symfony\swiftmailer-bundle/translations</argument>
+          <argument>C:\Users\Stagiaire\DGTCS\vendor\auth0\jwt-auth-bundle\src/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
@@ -1817,6 +1838,7 @@
             <argument>C:\Users\Stagiaire\DGTCS\vendor\symfony\security-bundle/translations</argument>
             <argument>C:\Users\Stagiaire\DGTCS\vendor\symfony\maker-bundle\src/translations</argument>
             <argument>C:\Users\Stagiaire\DGTCS\vendor\symfony\swiftmailer-bundle/translations</argument>
+            <argument>C:\Users\Stagiaire\DGTCS\vendor\auth0\jwt-auth-bundle\src/translations</argument>
           </argument>
         </argument>
       </argument>
@@ -2467,6 +2489,14 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="debug.debug_handlers_listener"/>
+          <argument>configure</argument>
+        </argument>
+        <argument>2048</argument>
+      </call>
+      <call method="addListener">
+        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -4912,9 +4942,30 @@
     <service id="swiftmailer.mailer.default.plugin.messagelogger" class="Swift_Plugins_MessageLogger" public="true">
       <tag name="swiftmailer.default.plugin"/>
     </service>
+    <service id="jwt_auth.auth0_service" class="Auth0\JWTAuthBundle\Security\Auth0Service">
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument type="collection"/>
+      <argument>false</argument>
+      <argument>%jwt_auth.supported_algs%</argument>
+      <argument>null</argument>
+    </service>
+    <service id="jwt_auth.jwt_authenticator" class="Auth0\JWTAuthBundle\Security\JWTAuthenticator">
+      <argument type="service" id="jwt_auth.auth0_service"/>
+    </service>
+    <service id="jwt_auth.cache.null" class="Auth0\SDK\Helpers\Cache\NoCacheHandler"/>
+    <service id="jwt_auth.cache.file_system" class="Auth0\SDK\Helpers\Cache\FileSystemCacheHandler"/>
+    <service id="jwt_auth.security.guard.jwt_guard_authenticator" class="Auth0\JWTAuthBundle\Security\Guard\JwtGuardAuthenticator">
+      <argument type="service" id="jwt_auth.auth0_service"/>
+    </service>
+    <service id="jwt_auth.security.user.jwt_user_provider" class="Auth0\JWTAuthBundle\Security\User\JwtUserProvider"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\BackOfficeController" class="App\Controller\BackOfficeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\BackOfficeController" class="App\Controller\BackOfficeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\BackOfficeController" class="App\Controller\BackOfficeController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DispatcherController" class="App\Controller\DispatcherController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DispatcherController" class="App\Controller\DispatcherController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\DispatcherController" class="App\Controller\DispatcherController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HelpController" class="App\Controller\HelpController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HelpController" class="App\Controller\HelpController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\HelpController" class="App\Controller\HelpController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5456,6 +5507,12 @@
     <service id=".service_locator.SXie53V.App\Controller\BackOfficeController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\BackOfficeController"/>
       <argument>App\Controller\BackOfficeController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.SXie53V" method="withContext"/>
+    </service>
+    <service id=".service_locator.SXie53V.App\Controller\DispatcherController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\DispatcherController"/>
+      <argument>App\Controller\DispatcherController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.SXie53V" method="withContext"/>
     </service>

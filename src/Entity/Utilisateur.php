@@ -268,6 +268,7 @@ class Utilisateur implements UserInterface, \Serializable
 
     public function setMdp(string $mdp): self
     {
+        $mdp = base64_encode($mdp);
         $this->mdp = $mdp;
 
         return $this;
@@ -333,7 +334,8 @@ class Utilisateur implements UserInterface, \Serializable
         return $this->getLogin();
     }
     public function getPassword(){
-        return $this->getMdp();
+        return base64_decode($this->getMdp());
+        //return ($this->getMdp());
     }
     /** @see \Serializable::serialize() */
     public function serialize(){
@@ -350,5 +352,71 @@ class Utilisateur implements UserInterface, \Serializable
             $this->login,
             $this->mdp,
         )=unserialize($serialized);
+    }
+
+    function rangdanslalphabet($lettre)
+    {
+        $alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_&@€£\$éàè([{}])ù%/*-+!§:/;.,?<>²~#|_ç^°µÀÁÂÃÄÅÆÇÈÉËÊÌÍÎÏÑñ";
+        $N = strlen($alphabet);
+        $alphabet=str_split($alphabet);
+        $j=0;
+        $rang=0;
+        while ($j < $N)
+        {
+            if ($lettre==$alphabet[$j])
+            {
+                $rang = $j;
+            }
+            $j++;
+        }
+        return $rang;
+    }
+
+    function lettredelalphabet($rang)
+    {
+        $alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_&@€£\$éàè([{}])ù%/*-+!§:/;.,?<>²~#|_ç^°µÀÁÂÃÄÅÆÇÈÉËÊÌÍÎÏÑñ";
+        $N = strlen($alphabet);
+        $alphabet=str_split($alphabet);
+        if ($rang>=$N)
+        {
+            $rang = $rang - $N;
+        }
+        if ($rang<0)
+        {
+            $rang = $rang + $N;
+        }
+        $lettre = $alphabet[$rang];
+        return $lettre;
+    }
+
+    function cryptagelettre($lettre, $cle)
+    {
+        $codelettre=$this->rangdanslalphabet($lettre);
+        $codecle=$this->rangdanslalphabet($cle);
+        $code=$codelettre+$codecle;
+        return $this->lettredelalphabet($code);
+    }
+
+    function cryptageVigenere($mot)
+    {
+        $cle="CDDBAJ";
+        $motcode="";
+        $longCle=strlen($cle);
+        $longMot=strlen($mot);
+        $cle=str_split($cle);
+        $mot=str_split($mot);
+        $tmp=0;
+        $i=0;
+        while ($i<$longMot)
+        {
+            $motcode=$motcode.$this->cryptagelettre($mot[$i],$cle[$tmp]);
+            $tmp=$tmp+1;
+            if ($tmp==$longCle)
+            {
+                $tmp=0;
+            }
+            $i++;
+        }
+        return $motcode;
     }
 }

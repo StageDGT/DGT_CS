@@ -120,12 +120,12 @@ class Societe
 
     public function getMdpsuperadmin(): ?string
     {
-        return $this->mdpsuperadmin;
+        return base64_decode($this->mdpsuperadmin);
     }
 
     public function setMdpsuperadmin(?string $mdpsuperadmin): self
     {
-        $this->mdpsuperadmin = $mdpsuperadmin;
+        $this->mdpsuperadmin = base64_encode($mdpsuperadmin);
 
         return $this;
     }
@@ -156,24 +156,24 @@ class Societe
 
     public function getMdplcms(): ?string
     {
-        return $this->mdplcms;
+        return base64_decode($this->mdplcms);
     }
 
     public function setMdplcms(?string $mdplcms): self
     {
-        $this->mdplcms = $mdplcms;
+        $this->mdplcms = base64_encode($mdplcms);
 
         return $this;
     }
 
     public function getMdplms(): ?string
     {
-        return $this->mdplms;
+        return base64_decode($this->mdplms);
     }
 
     public function setMdplms(string $mdplms): self
     {
-        $this->mdplms = $mdplms;
+        $this->mdplms = base64_encode($mdplms);
 
         return $this;
     }

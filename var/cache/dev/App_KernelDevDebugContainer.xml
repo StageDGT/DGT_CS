@@ -20,6 +20,7 @@
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
       <parameter key="SwiftmailerBundle">Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle</parameter>
       <parameter key="JWTAuthBundle">Auth0\JWTAuthBundle\JWTAuthBundle</parameter>
+      <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -73,6 +74,10 @@
       <parameter key="JWTAuthBundle" type="collection">
         <parameter key="path">C:\Users\Stagiaire\DGTCS\vendor\auth0\jwt-auth-bundle\src</parameter>
         <parameter key="namespace">Auth0\JWTAuthBundle</parameter>
+      </parameter>
+      <parameter key="DoctrineFixturesBundle" type="collection">
+        <parameter key="path">C:\Users\Stagiaire\DGTCS\vendor\doctrine\doctrine-fixtures-bundle</parameter>
+        <parameter key="namespace">Doctrine\Bundle\FixturesBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -394,6 +399,13 @@
       <call method="setContainer">
         <argument type="service" id=".service_locator.SXie53V.App\Controller\TSLMSController"/>
       </call>
+    </service>
+    <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\DataFixtures\User" class="App\DataFixtures\User" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+      <argument type="service" id="security.user_password_encoder.generic"/>
     </service>
     <service id="App\Form\AjoutAdminType" class="App\Form\AjoutAdminType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
@@ -1819,6 +1831,7 @@
           <argument>C:\Users\Stagiaire\DGTCS\vendor\symfony\maker-bundle\src/translations</argument>
           <argument>C:\Users\Stagiaire\DGTCS\vendor\symfony\swiftmailer-bundle/translations</argument>
           <argument>C:\Users\Stagiaire\DGTCS\vendor\auth0\jwt-auth-bundle\src/translations</argument>
+          <argument>C:\Users\Stagiaire\DGTCS\vendor\doctrine\doctrine-fixtures-bundle/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
@@ -1839,6 +1852,7 @@
             <argument>C:\Users\Stagiaire\DGTCS\vendor\symfony\maker-bundle\src/translations</argument>
             <argument>C:\Users\Stagiaire\DGTCS\vendor\symfony\swiftmailer-bundle/translations</argument>
             <argument>C:\Users\Stagiaire\DGTCS\vendor\auth0\jwt-auth-bundle\src/translations</argument>
+            <argument>C:\Users\Stagiaire\DGTCS\vendor\doctrine\doctrine-fixtures-bundle/translations</argument>
           </argument>
         </argument>
       </argument>
@@ -2489,14 +2503,6 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
-        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -4960,6 +4966,29 @@
       <argument type="service" id="jwt_auth.auth0_service"/>
     </service>
     <service id="jwt_auth.security.user.jwt_user_provider" class="Auth0\JWTAuthBundle\Security\User\JwtUserProvider"/>
+    <service id="doctrine.fixtures_load_command" class="Doctrine\Bundle\FixturesBundle\Command\LoadDataFixturesDoctrineCommand">
+      <tag name="console.command" command="doctrine:fixtures:load"/>
+      <argument type="service" id="doctrine.fixtures.loader"/>
+      <argument type="service" id="doctrine"/>
+      <call method="setName">
+        <argument>doctrine:fixtures:load</argument>
+      </call>
+    </service>
+    <service id="doctrine.fixtures.loader" class="Doctrine\Bundle\FixturesBundle\Loader\SymfonyFixturesLoader" public="false">
+      <argument type="service" id="service_container"/>
+      <call method="addFixtures">
+        <argument type="collection">
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\AppFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\User"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+        </argument>
+      </call>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\BackOfficeController" class="App\Controller\BackOfficeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\BackOfficeController" class="App\Controller\BackOfficeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\BackOfficeController" class="App\Controller\BackOfficeController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -4984,6 +5013,10 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TSLMSController" class="App\Controller\TSLMSController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TSLMSController" class="App\Controller\TSLMSController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\TSLMSController" class="App\Controller\TSLMSController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\User" class="App\DataFixtures\User" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\User" class="App\DataFixtures\User" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AjoutAdminType" class="App\Form\AjoutAdminType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\AjoutAdminType" class="App\Form\AjoutAdminType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AjoutUtilisateurType" class="App\Form\AjoutUtilisateurType" autowire="true" abstract="true"/>
@@ -5707,7 +5740,7 @@
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id=".service_locator.9y2VczN"/>
+      <argument type="service" id=".service_locator.x1o6JWw"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -5772,6 +5805,7 @@
         <argument key="debug:swiftmailer">swiftmailer.command.debug</argument>
         <argument key="swiftmailer:email:send">swiftmailer.command.new_email</argument>
         <argument key="swiftmailer:spool:send">swiftmailer.command.send_email</argument>
+        <argument key="doctrine:fixtures:load">doctrine.fixtures_load_command</argument>
         <argument key="make:auth">maker.auto_command.make_auth</argument>
         <argument key="make:command">maker.auto_command.make_command</argument>
         <argument key="make:controller">maker.auto_command.make_controller</argument>
@@ -5792,7 +5826,7 @@
         <argument key="make:migration">maker.auto_command.make_migration</argument>
       </argument>
     </service>
-    <service id=".service_locator.9y2VczN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.x1o6JWw" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="console.command.about" type="service" id="console.command.about"/>
@@ -5832,6 +5866,7 @@
         <argument key="doctrine.database_drop_command" type="service" id="doctrine.database_drop_command"/>
         <argument key="doctrine.database_import_command" type="service" id="doctrine.database_import_command"/>
         <argument key="doctrine.ensure_production_settings_command" type="service" id="doctrine.ensure_production_settings_command"/>
+        <argument key="doctrine.fixtures_load_command" type="service" id="doctrine.fixtures_load_command"/>
         <argument key="doctrine.mapping_convert_command" type="service" id="doctrine.mapping_convert_command"/>
         <argument key="doctrine.mapping_import_command" type="service" id="doctrine.mapping_import_command"/>
         <argument key="doctrine.mapping_info_command" type="service" id="doctrine.mapping_info_command"/>

@@ -41,17 +41,17 @@ class TSLCMSController extends AbstractController
             $soapParameters = Array('login' => $loginParam, 'password' => $mdpParam) ;
         }
         $client = new \SoapClient($ecmg_url.'ws.php?wsdl', $soapParameters);
-        
+
 
         // on verifie si l'utilisateur existe deja ou non via son login
         $UserAlreadyExist = ($client->__call("getUserInfosByLogin",array('login' => $login)));
-        
+
         if($UserAlreadyExist){
             $user = ($client->__call("getUserInfosByLogin",array('login' => $login)));
             $sso_key = $client->__call("createSSOSecurityKey",array('uid' => $user->id_membre));
             $sso_URL = $ecmg_url.'sso.php?skey='.$sso_key;
             header("location: ${sso_URL}");
-            die();              
+            die();
         }
         else{
             //Sinon
@@ -70,7 +70,7 @@ class TSLCMSController extends AbstractController
 
                     //On créé un utilisateur qui sera admin du projet
                     $client->__call("addUser", array('login' => $login, 'pass' => $password, 'last_name' => $nom, 'first_name' => $prenom, 'email' => $email, 'lang' => "fr", 'active' => true, 'start_date' => $date, 'end_date' => null, 'profile_id' => 1, 'package_id' => 5));
-                    
+
                     //On récupère l'ID du client
                     $user=($client->__call("getUserInfosByLogin", array('login' => $login)));
                     $userId=$user->id_membre;
@@ -78,7 +78,7 @@ class TSLCMSController extends AbstractController
                     //On récupère l'ID du projet
                     $project=$client->__call("getProjectList", array('get_custom_fields' => false,'name_search' => $societe, 'customer_search'=>$societe, 'only_user_projects'=>false));
                     $projectId=$project[0]->id_projet;
-                    
+
                     //On associe l'utilisateur au projet
                     $client->__call("associateUserProject", array('uid'=>$userId, 'project_id'=>$projectId, 'profile_id'=>3));
 
@@ -106,9 +106,9 @@ class TSLCMSController extends AbstractController
 
                     $user = ($client->__call("getUserInfosByLogin",array('login' => $login)));
                     $sso_key = $client->__call("createSSOSecurityKey",array('uid' => $user->id_membre));
-                    $sso_URL = $ecmg_url.'sso.php?skey='.$sso_key;          
+                    $sso_URL = $ecmg_url.'sso.php?skey='.$sso_key;
                     header("location: ${sso_URL}");
-                    die();     
+                    die();
 
                     break;
                 default:;

@@ -123,7 +123,7 @@ class BackOfficeController extends AbstractController
 
             foreach($lesUsers as $unUser)
             {
-                $entityManager->remove($unUser);   
+                $entityManager->remove($unUser);
             }
 
             $idParamSociete=$admin->getIdSociete();
@@ -133,15 +133,15 @@ class BackOfficeController extends AbstractController
 
             $entityManager->remove($admin);
             $entityManager->flush();
-          
+
             //On affiche une notification
             $this->addFlash('success', 'L\'Admin a bien été supprimé !');
         }
-        
-        return $this->redirectToRoute("back_office");  
+
+        return $this->redirectToRoute("back_office");
     }
 
-  
+
     /**
      * @Route("/backoffice/supprimerUtilisateur/{id}", name="supprimerUtilisateur", methods="DELETE")
      */
@@ -157,10 +157,10 @@ class BackOfficeController extends AbstractController
 
             //On affiche une notification
             $this->addFlash('success', 'L\'utilisateur a bien été supprimé !');
-          
+
         }
-        
-        return $this->redirectToRoute("back_office");  
+
+        return $this->redirectToRoute("back_office");
     }
 
     /**
@@ -179,7 +179,7 @@ class BackOfficeController extends AbstractController
         {
             //On affiche une notification
             $this->addFlash('success', 'L\'Admin a bien été modifié !');
-            
+
             $entityManager->flush();
             return $this->redirectToRoute('back_office');
 
@@ -246,7 +246,7 @@ class BackOfficeController extends AbstractController
         {
             //On affiche une notification
             $this->addFlash('success', 'L\'utilisateur a bien été modifié !');
-            
+
             $entityManager->flush();
             return $this->redirectToRoute('back_office');
 
@@ -281,7 +281,7 @@ class BackOfficeController extends AbstractController
         {
             //On affiche une notification
             $this->addFlash('success', 'Les paramètres ont bien été modifiés !');
-            
+
             $entityManager->flush();
 
             return $this->redirectToRoute('modifierParametres');
@@ -291,7 +291,7 @@ class BackOfficeController extends AbstractController
         {
             //On affiche une notification
             $this->addFlash('success', 'Les paramètres ont bien été modifiés !');
-            
+
             $entityManager->flush();
 
             return $this->redirectToRoute('modifierParametres');
@@ -301,7 +301,7 @@ class BackOfficeController extends AbstractController
         {
             //On affiche une notification
             $this->addFlash('success', 'Les paramètres ont bien été modifiés !');
-            
+
             $entityManager->flush();
 
             return $this->redirectToRoute('modifierParametres');
@@ -321,24 +321,24 @@ class BackOfficeController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
 
             $id=$theUser->getIdSociete()->getId();
-    
+
             $repository = $this->getDoctrine()->getRepository(Societe::class);
             $parametre = $repository->find($id);
-            
-            $parametre->setUrllcms(null);
-            $parametre->setLoginlcms(null);
-            $parametre->setMdplcms(null);
-        
+
+            $parametre->setUrllcms("");
+            $parametre->setLoginlcms("");
+            $parametre->setMdplcms("");
+
             $entityManager->flush();
-            
+
             //On affiche une notification
             $this->addFlash('success', 'Les paramètres ont bien été réinitialisés !');
-    
+
         }
-       
+
         return $this->redirectToRoute('modifierParametres');
     }
-    
+
     /**
      * @Route("/backoffice/supprParamLMS", name="supprParamLMS")
      */
@@ -350,24 +350,24 @@ class BackOfficeController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
 
             $id=$theUser->getIdSociete()->getId();
-    
+
             $repository = $this->getDoctrine()->getRepository(Societe::class);
             $parametre = $repository->find($id);
-            
-            $parametre->setUrllms(null);
-            $parametre->setLoginlms(null);
-            $parametre->setMdplms(null);
-        
+
+            $parametre->setUrllms("");
+            $parametre->setLoginlms("");
+            $parametre->setMdplms("");
+
             $entityManager->flush();
-            
+
             //On affiche une notification
             $this->addFlash('success', 'Les paramètres ont bien été réinitialisés !');
-    
+
         }
-       
+
         return $this->redirectToRoute('modifierParametres');
     }
-    
+
     /**
      * @Route("/backoffice/supprParamSuperAdmin", name="supprParamSuperAdmin")
      */
@@ -379,21 +379,21 @@ class BackOfficeController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
 
             $id=$theUser->getIdSociete()->getId();
-    
+
             $repository = $this->getDoctrine()->getRepository(Societe::class);
             $parametre = $repository->find($id);
-            
-            $parametre->setLoginsuperadmin(null);
-            $parametre->setMdpsuperadmin(null);
-        
+
+            $parametre->setLoginsuperadmin("");
+            $parametre->setMdpsuperadmin("");
+
             $entityManager->flush();
-            
+
             //On affiche une notification
             $this->addFlash('success', 'Les paramètres ont bien été réinitialisés !');
-    
+
         }
-       
+
         return $this->redirectToRoute('modifierParametres');
     }
-    
+
 }

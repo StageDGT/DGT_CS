@@ -20,9 +20,6 @@ class TSAController extends AbstractController
             $repository=$this->getDoctrine()->getRepository(Societe::class);
             $idParamSociete=$theUser->getIdSociete();
             $paramSociete=$repository->find($idParamSociete);
-
-            $loginSA=$paramSociete->getLoginsuperadmin();
-
         }
         elseif($theUser->getRole()==2){
             $admin=$theUser->getIdDiriger();
@@ -30,15 +27,16 @@ class TSAController extends AbstractController
             $repository=$this->getDoctrine()->getRepository(Societe::class);
             $idParamSociete=$admin->getIdSociete();
             $paramSociete=$repository->find($idParamSociete);
-
-            $loginSA=$paramSociete->getLoginsuperadmin();
         }
 
+        $loginSA=$paramSociete->getLoginsuperadmin();
+        $mdpSA=$paramSociete->getMdpsuperadmin();
 
         $url = 'https://tsacademy.elmg.net/';
-        $soapParameters = Array('login' => $loginSA, 'password'=> 'motdepasse') ;
+        $soapParameters = Array('login' => $loginSA, 'password'=> $mdpSA) ;
 
         $client = new \SoapClient($url.'ws.php?wsdl', $soapParameters);
+
         $user = ($client->__call("getUserInfosByLogin",array('login' => $loginSA)));
 
         // si l'utilisateur existe

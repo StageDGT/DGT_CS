@@ -25,25 +25,23 @@ class TSLCMSController extends AbstractController
         $date = new \DateTime();
         $date= $date->getTimestamp();
 
-        $url=$theUser->getIdSociete()->getUrllcms();
-        $loginParam=$theUser->getIdSociete()->getLoginlcms();
-        $mdpParam=$theUser->getIdSociete()->getMdplcms();
+        //$url=$theUser->getIdSociete()->getUrllcms();
+        //$loginParam=$theUser->getIdSociete()->getLoginlcms();
+        //$mdpParam=$theUser->getIdSociete()->getMdplcms();
 
         $repository = $this->getDoctrine()->getRepository(Utilisateur::class);
         $superAdmin= $repository->find(0);
 
-        if($url == null || $url =""){
-            $ecmg_url = 'https://dgtconcept.e-learning-suite.com/';
-            $soapParameters = Array('login' => $superAdmin->getLogin(), 'password' => $superAdmin->getMdp()) ;
-        }
-        else{
-            $ecmg_url = $url;
-            $soapParameters = Array('login' => $loginParam, 'password' => $mdpParam) ;
-        }
+        $ecmg_url = 'https://dgtconcept.e-learning-suite.com/';
+        //$soapParameters = Array('login' => $superAdmin->getLogin(), 'password' => $superAdmin->getMdp());
+        $soapParameters = Array('login' => $superAdmin->getLogin(), 'password' => $superAdmin->getMdp()) ;
+
         $client = new \SoapClient($ecmg_url.'ws.php?wsdl', $soapParameters);
 
-
+        //dump($login);
         // on verifie si l'utilisateur existe deja ou non via son login
+        //$UserAlreadyExist = ($client->__call("getUserInfosByLogin",array('login' => $login)));
+        //$UserAlreadyExist = ($client->__call("checkConnection",array('login' => $login, 'password'=>$password)));
         $UserAlreadyExist = ($client->__call("getUserInfosByLogin",array('login' => $login)));
 
         if($UserAlreadyExist){

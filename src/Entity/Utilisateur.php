@@ -263,7 +263,7 @@ class Utilisateur implements UserInterface, \Serializable
 
     public function getMdp(): ?string
     {
-        return $this->mdp;
+        return base64_decode($this->mdp);
     }
 
     public function setMdp(string $mdp): self
@@ -334,8 +334,8 @@ class Utilisateur implements UserInterface, \Serializable
         return $this->getLogin();
     }
     public function getPassword(){
-        return base64_decode($this->getMdp());
-        //return ($this->getMdp());
+        //return base64_decode($this->getMdp());
+        return ($this->getMdp());
     }
     /** @see \Serializable::serialize() */
     public function serialize(){
